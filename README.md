@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" alt="StageMate Logo" width="120"/>
+<img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="StageMate Logo" width="120"/>
 
 # StageMate
 
