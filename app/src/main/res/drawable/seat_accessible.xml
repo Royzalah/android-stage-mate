@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    
+    <!-- Accessible seat - blue -->
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M4,18v3h3v-3h10v3h3v-3h0c0,-2.66 -2.34,-5 -5,-5H9C6.34,13 4,15.34 4,18L4,18z"/>
+    
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M19,10h3v3h-3z"/>
+    
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M2,10h3v3H2z"/>
+    
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M20,2H4C3,2 2,2.9 2,4v3h20V4C22,2.9 21,2 20,2z"/>
+    
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M7,11H17v2H7z"/>
+    
+    <!-- Accessibility symbol (wheelchair) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2zM17,8.2C17,9 16.5,9.7 15.7,10L13,11.2V13H16V21H12V15H11L8.3,13.5C7.5,13.1 7,12.2 7,11.3V9C7,7.3 8.3,6 10,6C10.5,6 11,6.1 11.4,6.3L14.8,8.2H17z"/>
+</vector>

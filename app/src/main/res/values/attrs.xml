@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TransactionButton">
+        <attr name="autoLoop" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="VenueMapView">
+        <attr name="showLabels" format="boolean" />
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="sectionStrokeWidth" format="dimension" />
+        <attr name="highlightColor" format="color" />
+    </declare-styleable>
+</resources>

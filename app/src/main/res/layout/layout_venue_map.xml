@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_medium">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/venue_map_LBL_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/select_section"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_size_xl"
+        android:fontFamily="@font/outfit_semibold"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Stage/Field label (hidden when using visual map views) -->
+    <TextView
+        android:id="@+id/venue_map_LBL_stage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:text="@string/stage_label"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/text_size_regular"
+        android:fontFamily="@font/outfit_semibold"
+        android:gravity="center"
+        android:padding="@dimen/padding_small"
+        android:background="@drawable/bg_glass_card"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venue_map_LBL_title" />
+
+    <!-- Visual venue map container (custom views are added programmatically) -->
+    <FrameLayout
+        android:id="@+id/venue_map_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:clipChildren="false"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintWidth_max="400dp"
+        app:layout_constraintHeight_min="280dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venue_map_LBL_title">
+
+        <!-- Skeleton loading placeholder -->
+        <View
+            android:id="@+id/venue_map_skeleton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/skeleton_background"
+            android:visibility="visible" />
+
+    </FrameLayout>
+
+    <!-- Hint text -->
+    <TextView
+        android:id="@+id/venue_map_LBL_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/venue_map_tap_section"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/text_size_small"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venue_map_container" />
+
+    <!-- Section info card (shown when user taps a section) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/venue_map_section_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/corner_radius_medium"
+        app:cardElevation="@dimen/elevation_medium"
+        app:strokeWidth="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venue_map_LBL_hint">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium">
+
+            <!-- Section color dot -->
+            <View
+                android:id="@+id/section_info_color_dot"
+                android:layout_width="@dimen/icon_small"
+                android:layout_height="@dimen/icon_small"
+                android:background="@drawable/circle_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/section_info_name"
+                app:layout_constraintBottom_toBottomOf="@id/section_info_name" />
+
+            <!-- Section name -->
+            <TextView
+                android:id="@+id/section_info_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_large"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_regular"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toEndOf="@id/section_info_color_dot"
+                app:layout_constraintEnd_toStartOf="@id/section_info_availability"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Availability -->
+            <TextView
+                android:id="@+id/section_info_availability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_small"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/section_info_name"
+                app:layout_constraintBottom_toBottomOf="@id/section_info_name" />
+
+            <!-- Price range -->
+            <TextView
+                android:id="@+id/section_info_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xs"
+                android:layout_marginStart="@dimen/category_icon_size"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_medium"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/section_info_name" />
+
+            <!-- Occupancy progress bar -->
+            <ProgressBar
+                android:id="@+id/section_info_occupancy_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/margin_small"
+                android:max="100"
+                android:progressDrawable="@android:drawable/progress_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/section_info_price" />
+
+            <!-- Select Seats button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/section_info_select_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="@string/venue_map_select_seats"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins_semibold"
+                app:cornerRadius="@dimen/corner_radius_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/section_info_occupancy_bar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Legacy RecyclerView (hidden, fallback only) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/venue_map_RV_sections"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:clipToPadding="false"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venue_map_section_info" />
+
+    <!-- Legend — populated dynamically by SeatSelectionActivity based on actual sections -->
+    <LinearLayout
+        android:id="@+id/venue_map_legend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/venue_map_RV_sections" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

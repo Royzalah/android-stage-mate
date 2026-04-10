@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    StageMate — Primary background gradient
+    Dark base with subtle purple accents.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Layer 0: Near-black base with purple hint -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#0F0A1A" />
+        </shape>
+    </item>
+
+    <!-- Layer 1: Subtle lavender glow — top-left area -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="95%p"
+                android:centerX="0.12"
+                android:centerY="0.15"
+                android:startColor="#30DCB9FC"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Layer 2: Subtle purple — upper-right area -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="75%p"
+                android:centerX="0.78"
+                android:centerY="0.10"
+                android:startColor="#25A64CF6"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Layer 3: Faint purple glow — center-left -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="70%p"
+                android:centerX="0.30"
+                android:centerY="0.50"
+                android:startColor="#20CF98FB"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Layer 4: Very faint purple — lower-center area -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="60%p"
+                android:centerX="0.55"
+                android:centerY="0.70"
+                android:startColor="#18BB6DFB"
+                android:endColor="#00000000" />
+        </shape>
+    </item>
+
+    <!-- Layer 5: Soft vignette — darkening at edges -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="95%p"
+                android:centerX="0.3"
+                android:centerY="0.35"
+                android:startColor="#00000000"
+                android:endColor="#35000000" />
+        </shape>
+    </item>
+
+</layer-list>

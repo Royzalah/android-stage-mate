@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Backward Navigation - Enter
+Slide in from left + Fade in
+Duration: 400ms (Medium 4)
+Easing: Emphasized Decelerate
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/motion_duration_medium_4">
+    
+    <!-- Slide from left -->
+    <translate
+        android:fromXDelta="-30%"
+        android:toXDelta="0%"
+        android:interpolator="@anim/m3_emphasized_decelerate_interpolator" />
+    
+    <!-- Fade in -->
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/linear_interpolator" />
+</set>

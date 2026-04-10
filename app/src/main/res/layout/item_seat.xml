@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/seat_item_container"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:layout_margin="@dimen/margin_xs"
+    android:clickable="true"
+    android:focusable="true"
+    android:contentDescription="@string/seat_available_label">
+
+    <ImageView
+        android:id="@+id/seat_item_IMG"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/seat_available"
+        android:scaleType="fitCenter"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:id="@+id/seat_item_LBL_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/seat_number_placeholder"
+        android:textAppearance="@style/TextAppearance.StageMate.LabelSmall"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+</FrameLayout>

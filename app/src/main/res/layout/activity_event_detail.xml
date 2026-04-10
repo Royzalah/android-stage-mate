@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Event Image -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/detail_IMG_event"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/event_detail_image_height"
+            android:scaleType="fitCenter"
+            android:background="@color/background_dark"
+            android:contentDescription="@string/event_poster"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_placeholder" />
+
+        <!-- Content Card - Glassmorphism -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/detail_CV_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/event_detail_card_offset"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:cardElevation="@dimen/elevation_card"
+            app:cardBackgroundColor="@color/background_card"
+            app:strokeColor="@color/stroke_subtle"
+            app:strokeWidth="@dimen/stroke_thin"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_large">
+
+                <!-- Title -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/detail_LBL_title"
+                    style="@style/TextAppearance.StageMate.HeadlineMedium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintEnd_toStartOf="@id/detail_IMG_favorite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Standup Comedy Night" />
+
+                <!-- Favorite -->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/detail_IMG_favorite"
+                    android:layout_width="@dimen/icon_large"
+                    android:layout_height="@dimen/icon_large"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/detail_LBL_title"
+                    android:contentDescription="@string/favorite"
+                    app:srcCompat="@drawable/ic_heart_empty"
+                    app:tint="@color/favorite_heart" />
+
+                <!-- Subtitle -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/detail_LBL_subtitle"
+                    style="@style/TextAppearance.StageMate.BodyMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    android:textColor="@color/text_secondary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_LBL_title"
+                    tools:text="+800 Participate" />
+
+                <!-- About Event Label -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/detail_LBL_about_label"
+                    style="@style/TextAppearance.StageMate.HeadlineSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="@string/about_event"
+                    android:textColor="@color/text_primary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_LBL_subtitle" />
+
+                <!-- Description -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/detail_LBL_description"
+                    style="@style/TextAppearance.StageMate.BodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:textColor="@color/text_secondary"
+                    app:layout_constraintTop_toBottomOf="@id/detail_LBL_about_label"
+                    tools:text="Lorem ipsum is simply dummy text of the printing and typesetting industry." />
+
+                <!-- Read More -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/detail_BTN_read_more"
+                    style="@style/TextAppearance.StageMate.BodyMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/read_more"
+                    android:textColor="@color/accent_primary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_LBL_description" />
+
+                <!-- Date Section -->
+                <LinearLayout
+                    android:id="@+id/detail_section_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:background="@drawable/bg_glass_card"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    app:layout_constraintTop_toBottomOf="@id/detail_BTN_read_more">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_large"
+                        android:layout_height="@dimen/icon_large"
+                        android:contentDescription="@string/cd_calendar_icon"
+                        app:srcCompat="@drawable/ic_calendar"
+                        app:tint="@color/white" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/detail_LBL_date"
+                        style="@style/TextAppearance.StageMate.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:textColor="@color/text_primary"
+                        tools:text="Mon, 8 Aug 2025" />
+
+                </LinearLayout>
+
+                <!-- Time Section -->
+                <LinearLayout
+                    android:id="@+id/detail_section_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@drawable/bg_glass_card"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    app:layout_constraintTop_toBottomOf="@id/detail_section_date">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_large"
+                        android:layout_height="@dimen/icon_large"
+                        android:contentDescription="@string/cd_time_icon"
+                        app:srcCompat="@drawable/ic_time"
+                        app:tint="@color/white" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/detail_LBL_time"
+                        style="@style/TextAppearance.StageMate.BodyMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:textColor="@color/text_primary"
+                        tools:text="10:30 PM - 2:30 AM" />
+
+                </LinearLayout>
+
+                <!-- Location Section -->
+                <LinearLayout
+                    android:id="@+id/detail_section_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@drawable/bg_glass_card"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium"
+                    app:layout_constraintTop_toBottomOf="@id/detail_section_time">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/icon_large"
+                            android:layout_height="@dimen/icon_large"
+                            android:contentDescription="@string/cd_location_icon"
+                            app:srcCompat="@drawable/ic_location"
+                            app:tint="@color/white" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/detail_LBL_location"
+                            style="@style/TextAppearance.StageMate.BodyMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/margin_medium"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_primary"
+                            tools:text="Tel Aviv, Yarkon Park" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Embedded Map -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/detail_CV_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/venue_map_height"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:cardBackgroundColor="@color/background_card"
+                    app:cardCornerRadius="@dimen/corner_radius_card"
+                    app:cardElevation="@dimen/elevation_card"
+                    app:layout_constraintTop_toBottomOf="@id/detail_section_location"
+                    app:strokeColor="@color/stroke_subtle"
+                    app:strokeWidth="@dimen/stroke_thin">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <fragment
+                            android:id="@+id/detail_map_fragment"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <ProgressBar
+                            android:id="@+id/detail_map_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone" />
+
+                    </FrameLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Add to Calendar Button - Full Width -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/detail_BTN_add_to_calendar"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height_large"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/add_to_calendar_title"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="@dimen/corner_radius_pill"
+                    app:icon="@drawable/ic_calendar"
+                    app:iconTint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_CV_map"
+                    app:strokeColor="@color/accent_primary"
+                    app:strokeWidth="@dimen/stroke_medium" />
+
+                <!-- Book Now — left, fills available space -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/detail_BTN_book_now"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/button_height_large"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:background="@drawable/bg_gradient_button"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="@string/book_now"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text_size_large"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="@dimen/corner_radius_pill"
+                    app:elevation="@dimen/elevation_card"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/detail_BTN_share"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_BTN_add_to_calendar" />
+
+                <!-- Share Button — small rounded, right side -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/detail_BTN_share"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="@dimen/button_height_large"
+                    android:layout_height="@dimen/button_height_large"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_large"
+                    android:padding="0dp"
+                    app:cornerRadius="@dimen/corner_radius_pill"
+                    app:icon="@drawable/ic_share"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_BTN_add_to_calendar"
+                    app:strokeColor="@color/accent_primary"
+                    app:strokeWidth="@dimen/stroke_medium" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

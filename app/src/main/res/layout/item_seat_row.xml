@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="@dimen/padding_xs">
+
+    <!-- Row Label (A, B, C, etc.) -->
+    <TextView
+        android:id="@+id/seat_row_LBL_row"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:text="@string/row_label_placeholder"
+        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+        android:textColor="@color/text_primary"
+        android:gravity="center"
+        android:layout_marginEnd="8dp" />
+
+    <!-- Seats in Row -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/seat_row_RV_seats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
+
+</LinearLayout>

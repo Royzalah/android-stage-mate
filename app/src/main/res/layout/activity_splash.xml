@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- App Icon — clean, centered -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/splash_IMG_logo"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:alpha="0"
+            android:contentDescription="@string/cd_app_logo"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.StageMate.Circle"
+            app:layout_constraintBottom_toTopOf="@id/splash_LBL_app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.38"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <!-- App Name -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/splash_LBL_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:alpha="0"
+            android:fontFamily="@font/outfit_semibold"
+            android:letterSpacing="0.08"
+            android:text="@string/app_name"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_heading"
+            app:layout_constraintBottom_toTopOf="@id/splash_LBL_tagline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/splash_IMG_logo" />
+
+        <!-- Tagline -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/splash_LBL_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:alpha="0"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/app_tagline"
+            android:textColor="@color/accent_light"
+            android:textSize="@dimen/text_size_medium"
+            android:letterSpacing="0.06"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/splash_LBL_app_name" />
+
+        <!-- Progress Indicator — bottom -->
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/splash_PB_progress"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:alpha="0"
+            android:indeterminate="true"
+            app:indicatorColor="@color/accent_primary"
+            app:trackColor="@color/input_bg_subtle"
+            app:trackThickness="3dp"
+            app:trackCornerRadius="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

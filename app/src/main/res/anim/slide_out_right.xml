@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+Backward Navigation - Exit
+Slide out to right + Fade out
+Duration: 400ms (Medium 4)
+Easing: Emphasized Accelerate
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/motion_duration_medium_4">
+    
+    <!-- Slide to right -->
+    <translate
+        android:fromXDelta="0%"
+        android:toXDelta="100%"
+        android:interpolator="@anim/m3_emphasized_accelerate_interpolator" />
+    
+    <!-- Fade out -->
+    <alpha
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0"
+        android:interpolator="@android:anim/linear_interpolator" />
+</set>

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TOP BAR                                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/seat_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_top_bar_glass"
+        android:elevation="0dp"
+        app:title="@string/seat_selection_title"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCROLL CONTENT                              -->
+    <!-- ═══════════════════════════════════════════ -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/seat_toolbar"
+        app:layout_constraintBottom_toTopOf="@id/seat_bottom_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
+
+            <!-- ─── Event Info Card (shared) ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/seat_event_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/corner_radius_card"
+                app:cardElevation="@dimen/elevation_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_small">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/seat_IMG_event"
+                        android:layout_width="@dimen/image_thumbnail"
+                        android:layout_height="@dimen/image_thumbnail"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/event_name"
+                        app:shapeAppearanceOverlay="@style/RoundedCorner"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/seat_LBL_event_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:text="@string/event_name"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyLarge"
+                        android:textColor="@color/text_primary"
+                        app:layout_constraintTop_toTopOf="@id/seat_IMG_event"
+                        app:layout_constraintStart_toEndOf="@id/seat_IMG_event"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/seat_LBL_event_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:layout_marginTop="@dimen/margin_xs"
+                        android:text="@string/seat_selection_date_placeholder"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+                        android:textColor="@color/text_secondary"
+                        app:layout_constraintTop_toBottomOf="@id/seat_LBL_event_title"
+                        app:layout_constraintStart_toEndOf="@id/seat_IMG_event"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/seat_LBL_event_location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="@string/seat_selection_location_placeholder"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+                        android:textColor="@color/text_secondary"
+                        app:layout_constraintTop_toBottomOf="@id/seat_LBL_event_date"
+                        app:layout_constraintStart_toEndOf="@id/seat_IMG_event"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Reservation Timer Card (shared) ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/seat_timer_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/corner_radius_card"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/warning_light">
+
+                <TextView
+                    android:id="@+id/seat_LBL_timer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/seat_timer_placeholder"
+                    android:textAppearance="@style/TextAppearance.StageMate.BodyLarge"
+                    android:textColor="@color/warning"
+                    android:gravity="center"
+                    android:padding="@dimen/padding_small"
+                    android:visibility="gone" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Ticket Type Selector (Hidden — pricing is per-seat) ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/seat_ticket_type_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_medium"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/seat_TIL_ticket_type"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_large"
+                    android:hint="@string/select_ticket_type"
+                    app:boxStrokeColor="@color/accent_primary"
+                    app:hintTextColor="@color/accent_primary">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/seat_ACT_ticket_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/text_primary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyLarge" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Pricing Legend ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/seat_pricing_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_medium"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pricing_guide"
+                        android:textAppearance="@style/TextAppearance.StageMate.TitleMedium"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="@dimen/margin_small" />
+
+                    <LinearLayout
+                        android:id="@+id/seat_pricing_legend_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- VIEW FLIPPER: Section Map / Seat Detail     -->
+            <!-- ═══════════════════════════════════════════ -->
+            <ViewFlipper
+                android:id="@+id/seat_view_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium">
+
+                <!-- ─── Child 0: Venue Section Map ─── -->
+                <include
+                    android:id="@+id/venue_map_include"
+                    layout="@layout/layout_venue_map" />
+
+                <!-- ─── Child 1: Seat Detail View ─── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Back to Sections button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/seat_detail_BTN_back"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/back_to_sections"
+                        android:textColor="@color/accent_primary"
+                        app:icon="@drawable/ic_arrow_left"
+                        app:iconTint="@color/accent_primary"
+                        app:iconGravity="start" />
+
+                    <!-- Section name header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/margin_small"
+                        android:paddingStart="@dimen/padding_small"
+                        android:paddingEnd="@dimen/padding_small">
+
+                        <View
+                            android:id="@+id/seat_detail_color_dot"
+                            android:layout_width="@dimen/spacing_large"
+                            android:layout_height="@dimen/spacing_large"
+                            android:background="@drawable/circle_indicator" />
+
+                        <TextView
+                            android:id="@+id/seat_detail_LBL_section_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/margin_small"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_large"
+                            android:fontFamily="@font/outfit_semibold"
+                            tools:text="VIP Courtside" />
+                    </LinearLayout>
+
+                    <!-- Stage / Court / Field orientation header -->
+                    <TextView
+                        android:id="@+id/seat_LBL_stage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stage_label"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.StageMate.TitleMedium"
+                        android:textColor="@color/white"
+                        android:background="@drawable/stage_background"
+                        android:drawableStart="@drawable/ic_court_mini"
+                        android:drawablePadding="@dimen/margin_small"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_small" />
+
+                    <!-- Available Seats Count -->
+                    <TextView
+                        android:id="@+id/seat_LBL_available_seats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodySmall"
+                        android:textColor="@color/text_secondary"
+                        tools:text="120 seats available (40%)" />
+
+                    <!-- Seat Map -->
+                    <HorizontalScrollView
+                        android:id="@+id/seat_horizontal_scroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:scrollbars="none">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/seat_RV_seats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:padding="@dimen/padding_small"
+                            tools:listitem="@layout/item_seat_row" />
+                    </HorizontalScrollView>
+
+                    <!-- Legend — pinned at bottom via layout_weight on seat grid above -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <!-- Available -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="@dimen/icon_large"
+                                android:layout_height="@dimen/icon_large"
+                                android:src="@drawable/seat_available"
+                                android:contentDescription="@string/seat_available_label" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_xs"
+                                android:text="@string/seat_available_label"
+                                android:textAppearance="@style/TextAppearance.StageMate.LabelSmall" />
+                        </LinearLayout>
+
+                        <!-- Selected -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="@dimen/icon_large"
+                                android:layout_height="@dimen/icon_large"
+                                android:src="@drawable/seat_selected"
+                                android:contentDescription="@string/seat_selected_orange_label" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_xs"
+                                android:text="@string/seat_selected_orange_label"
+                                android:textAppearance="@style/TextAppearance.StageMate.LabelSmall" />
+                        </LinearLayout>
+
+                        <!-- Occupied -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="@dimen/icon_large"
+                                android:layout_height="@dimen/icon_large"
+                                android:src="@drawable/seat_occupied"
+                                android:contentDescription="@string/seat_occupied_label" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_xs"
+                                android:text="@string/seat_occupied_label"
+                                android:textAppearance="@style/TextAppearance.StageMate.LabelSmall" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Accessible legend -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_large"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="@dimen/icon_large"
+                            android:layout_height="@dimen/icon_large"
+                            android:src="@drawable/seat_accessible"
+                            android:contentDescription="@string/seat_disabled_label" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_xs"
+                            android:text="@string/seat_disabled_label"
+                            android:textAppearance="@style/TextAppearance.StageMate.LabelSmall" />
+                    </LinearLayout>
+
+                    <!-- Bottom spacer -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/margin_large" />
+
+                </LinearLayout>
+
+            </ViewFlipper>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- BOTTOM BAR (shared)                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/seat_bottom_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/elevation_large"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium">
+
+            <TextView
+                android:id="@+id/seat_LBL_selected_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/selected_seats"
+                android:textAppearance="@style/TextAppearance.StageMate.BodySmall"
+                android:textColor="@color/text_secondary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/seat_LBL_selected_seats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_tiny"
+                android:text="@string/seats_selected_count"
+                android:textAppearance="@style/TextAppearance.StageMate.BodyLarge"
+                android:textColor="@color/text_primary"
+                app:layout_constraintTop_toBottomOf="@id/seat_LBL_selected_label"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/seat_LBL_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xs"
+                android:text="@string/total_price_placeholder"
+                android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+                android:textColor="@color/primary"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/seat_LBL_selected_seats"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/seat_BTN_continue"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height_large"
+                android:text="@string/continue_to_payment"
+                android:textAppearance="@style/TextAppearance.StageMate.BodyLarge"
+                android:fontFamily="@font/poppins_semibold"
+                android:enabled="false"
+                app:cornerRadius="@dimen/corner_radius_pill"
+                app:icon="@drawable/ic_arrow_left"
+                app:iconGravity="end"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

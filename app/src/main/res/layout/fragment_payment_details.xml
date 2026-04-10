@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/payment_BTN_pay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium">
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- VISUAL CREDIT CARD PREVIEW                  -->
+            <!-- ═══════════════════════════════════════════ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/payment_CV_card_preview"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/payment_card_height"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                app:cardCornerRadius="@dimen/corner_radius_card_medium"
+                app:cardElevation="@dimen/elevation_high"
+                app:cardBackgroundColor="@color/card_background_dark"
+                app:strokeWidth="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_large">
+
+                    <!-- Card label -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/payment_LBL_card_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/credit_card"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_size_small"
+                        android:fontFamily="@font/poppins_medium"
+                        android:letterSpacing="0.15"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Chip icon (gold square) -->
+                    <View
+                        android:id="@+id/payment_IMG_card_chip"
+                        android:layout_width="@dimen/image_small"
+                        android:layout_height="@dimen/category_icon_size"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:background="@drawable/bg_glass_card"
+                        app:layout_constraintTop_toBottomOf="@id/payment_LBL_card_title"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Card number display -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/payment_LBL_card_number_display"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="@string/card_number_placeholder"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_large"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:letterSpacing="0.1"
+                        android:maxLines="1"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="@dimen/text_size_small"
+                        android:autoSizeMaxTextSize="@dimen/text_size_large"
+                        app:layout_constraintTop_toBottomOf="@id/payment_IMG_card_chip"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- Card holder label -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/payment_LBL_card_holder_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/card_holder_label"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_size_micro"
+                        android:fontFamily="@font/poppins"
+                        android:letterSpacing="0.15"
+                        app:layout_constraintBottom_toTopOf="@id/payment_LBL_card_holder_name"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <!-- Card holder name -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/payment_LBL_card_holder_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/card_holder_placeholder"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_body_small"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/payment_LBL_card_expiry_label" />
+
+                    <!-- Expiry label -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/payment_LBL_card_expiry_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expires_label"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_size_micro"
+                        android:fontFamily="@font/poppins"
+                        android:letterSpacing="0.15"
+                        app:layout_constraintBottom_toTopOf="@id/payment_LBL_card_expiry"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- Expiry value -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/payment_LBL_card_expiry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/expiry_placeholder"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_body_small"
+                        android:fontFamily="@font/poppins_semibold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!-- Decorative circles (top-right, like Mastercard) -->
+                    <View
+                        android:id="@+id/payment_VIEW_circle_1"
+                        android:layout_width="@dimen/image_medium"
+                        android:layout_height="@dimen/image_medium"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/delete_bg_subtle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/payment_VIEW_circle_2"
+                        android:layout_marginEnd="-12dp" />
+
+                    <View
+                        android:id="@+id/payment_VIEW_circle_2"
+                        android:layout_width="@dimen/image_medium"
+                        android:layout_height="@dimen/image_medium"
+                        android:background="@drawable/circle_background"
+                        android:backgroundTint="@color/cvv_bg_subtle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ═══════════════════════════════════════════ -->
+            <!-- INPUT FIELDS                                -->
+            <!-- ═══════════════════════════════════════════ -->
+
+            <!-- Guideline: 50% — splits Expiry / CVV -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/payment_GUIDELINE_half"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <!-- ─── Card Number ─── -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/payment_TIL_card_number"
+                style="@style/Widget.StageMate.TextInputLayout.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:hint="@string/card_number"
+                app:startIconDrawable="@drawable/ic_credit_card"
+                app:startIconTint="@color/primary"
+                app:hintTextColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/payment_CV_card_preview"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/payment_EDT_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_medium"
+                    android:inputType="number"
+                    android:maxLength="19"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ─── Cardholder Name ─── -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/payment_TIL_cardholder_name"
+                style="@style/Widget.StageMate.TextInputLayout.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:hint="@string/cardholder_name"
+                app:startIconDrawable="@drawable/ic_person"
+                app:startIconTint="@color/primary"
+                app:hintTextColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/payment_TIL_card_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/payment_EDT_cardholder_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_medium"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ─── ID Number ─── -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/payment_TIL_id_number"
+                style="@style/Widget.StageMate.TextInputLayout.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:hint="@string/id_number"
+                app:startIconDrawable="@drawable/ic_person"
+                app:startIconTint="@color/primary"
+                app:hintTextColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/payment_TIL_cardholder_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/payment_EDT_id_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_medium"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ─── Expiry Date — left half ─── -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/payment_TIL_expiry_date"
+                style="@style/Widget.StageMate.TextInputLayout.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:hint="@string/hint_expiry_mmyy"
+                app:hintTextColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/payment_TIL_id_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/payment_GUIDELINE_half">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/payment_EDT_expiry_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_medium"
+                    android:inputType="number"
+                    android:digits="0123456789/"
+                    android:maxLength="5"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ─── CVV — right half ─── -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/payment_TIL_cvv"
+                style="@style/Widget.StageMate.TextInputLayout.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:hint="@string/hint_cvv_3_digits"
+                app:hintTextColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/payment_TIL_id_number"
+                app:layout_constraintStart_toEndOf="@id/payment_GUIDELINE_half"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/payment_EDT_cvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_medium"
+                    android:inputType="numberPassword"
+                    android:maxLength="3"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- ─── Security note ─── -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/payment_LBL_security"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:gravity="center"
+                android:text="@string/secure_encrypted"
+                android:textColor="@color/text_secondary"
+                style="@style/TextAppearance.StageMate.BodySmall"
+                app:layout_constraintTop_toBottomOf="@id/payment_TIL_expiry_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CONFIRM & PAY — animated TransactionButton   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <com.roei.stagemate.ui.views.TransactionButton
+        android:id="@+id/payment_BTN_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/search_SRL_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ═══ Header ═══ -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_LBL_title"
+                style="@style/TextAppearance.StageMate.HeadlineLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="@string/discover"
+                android:textColor="@color/text_primary" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_xs"
+                android:text="@string/find_your_next_experience"
+                android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+                android:textColor="@color/text_secondary" />
+
+            <!-- ═══ Search Bar (Glass Card) ═══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/search_CV_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                app:cardCornerRadius="@dimen/corner_radius_xl"
+                app:cardElevation="@dimen/elevation_large"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/search_TIL_query"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/text_secondary"
+                    app:startIconDrawable="@drawable/ic_search"
+                    app:startIconTint="@color/accent_primary"
+                    app:hintTextColor="@color/text_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/search_EDT_query"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/search_events_artists_venues"
+                        android:inputType="text"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_hint"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyLarge" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ═══ Search History ═══ -->
+            <LinearLayout
+                android:id="@+id/search_LAYOUT_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_small"
+                android:paddingHorizontal="@dimen/margin_medium"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/search_history_title"
+                        android:textColor="@color/text_secondary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodySmall" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/search_BTN_clear_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear_history"
+                        android:textColor="@color/accent_secondary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodySmall" />
+
+                </LinearLayout>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/search_CHIPG_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    app:singleLine="true" />
+
+            </LinearLayout>
+
+            <!-- ═══ Category Chips ═══ -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scrollbars="none"
+                android:clipToPadding="false"
+                android:paddingHorizontal="@dimen/margin_small">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/search_CHIPG_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:chipSpacingHorizontal="@dimen/margin_small">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/search_CHIP_all"
+                        style="@style/Widget.StageMate.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all"
+                        android:checked="true"
+                        app:chipBackgroundColor="@color/background_card"
+                        app:chipStrokeColor="@color/accent_primary"
+                        app:chipStrokeWidth="@dimen/stroke_thin"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/search_CHIP_music"
+                        style="@style/Widget.StageMate.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/music"
+                        android:contentDescription="@string/filter_music"
+                        app:chipBackgroundColor="@color/background_card"
+                        app:chipStrokeColor="@color/accent_primary"
+                        app:chipStrokeWidth="@dimen/stroke_thin"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/search_CHIP_comedy"
+                        style="@style/Widget.StageMate.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/comedy"
+                        app:chipBackgroundColor="@color/background_card"
+                        app:chipStrokeColor="@color/accent_primary"
+                        app:chipStrokeWidth="@dimen/stroke_thin"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/search_CHIP_sport"
+                        style="@style/Widget.StageMate.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sport"
+                        android:contentDescription="@string/filter_sports"
+                        app:chipBackgroundColor="@color/background_card"
+                        app:chipStrokeColor="@color/accent_primary"
+                        app:chipStrokeWidth="@dimen/stroke_thin"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/search_CHIP_theater"
+                        style="@style/Widget.StageMate.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/theater"
+                        android:contentDescription="@string/filter_theater"
+                        app:chipBackgroundColor="@color/background_card"
+                        app:chipStrokeColor="@color/accent_primary"
+                        app:chipStrokeWidth="@dimen/stroke_thin"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/search_CHIP_children"
+                        style="@style/Widget.StageMate.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/children"
+                        android:contentDescription="@string/filter_family"
+                        app:chipBackgroundColor="@color/background_card"
+                        app:chipStrokeColor="@color/accent_primary"
+                        app:chipStrokeWidth="@dimen/stroke_thin"
+                        android:textColor="@color/text_primary" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/search_CHIP_festival"
+                        style="@style/Widget.StageMate.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/festival"
+                        app:chipBackgroundColor="@color/background_card"
+                        app:chipStrokeColor="@color/accent_primary"
+                        app:chipStrokeWidth="@dimen/stroke_thin"
+                        android:textColor="@color/text_primary" />
+
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <!-- ═══ City Filter (grouped with search tools) ═══ -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_LBL_city"
+                style="@style/TextAppearance.StageMate.BodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="@string/city"
+                android:textColor="@color/text_secondary" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_RV_cities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xs"
+                android:orientation="horizontal"
+                android:clipToPadding="false"
+                android:paddingHorizontal="@dimen/margin_small"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_category" />
+
+            <!-- ═══ Subcategory Chips (dynamic, shown when category has subcategories) ═══ -->
+            <HorizontalScrollView
+                android:id="@+id/search_HSV_subcategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:scrollbars="none"
+                android:clipToPadding="false"
+                android:paddingHorizontal="@dimen/margin_small"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/search_CHIPG_subcategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:selectionRequired="false"
+                    app:chipSpacingHorizontal="@dimen/margin_small" />
+
+            </HorizontalScrollView>
+
+            <!-- ═══ Divider — separates filters from content ═══ -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/accent_bg_subtle" />
+
+            <!-- ═══ Results Count ═══ -->
+            <TextView
+                android:id="@+id/search_LBL_results_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="@color/text_secondary"
+                android:textAppearance="@style/TextAppearance.StageMate.LabelMedium"
+                android:visibility="gone"
+                tools:text="12 results found"
+                tools:visibility="visible" />
+
+            <!-- ═══ Trending Now Section ═══ -->
+            <LinearLayout
+                android:id="@+id/search_LAYOUT_trending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_medium">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_medium">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="@dimen/spacing_xxl"
+                        android:background="@drawable/bg_section_accent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:text="@string/trending_now"
+                        android:textAppearance="@style/TextAppearance.StageMate.TitleLarge"
+                        android:textColor="@color/text_primary" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/search_RV_trending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:orientation="horizontal"
+                    android:clipToPadding="false"
+                    android:paddingHorizontal="@dimen/margin_small"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_event" />
+            </LinearLayout>
+
+            <!-- ═══ Suggested For You Section ═══ -->
+            <LinearLayout
+                android:id="@+id/search_LAYOUT_recommendations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_large">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_medium">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="@dimen/spacing_xxl"
+                        android:background="@drawable/bg_section_accent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/spacing_xxl"
+                        android:layout_height="@dimen/spacing_xxl"
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        app:srcCompat="@drawable/ic_star"
+                        app:tint="@color/accent_secondary"
+                        android:contentDescription="@null" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:text="@string/recommendations_title"
+                        android:textAppearance="@style/TextAppearance.StageMate.TitleLarge"
+                        android:textColor="@color/text_primary" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/search_RV_recommendations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:orientation="horizontal"
+                    android:clipToPadding="false"
+                    android:paddingHorizontal="@dimen/margin_small"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_event" />
+
+                <TextView
+                    android:id="@+id/search_LBL_no_recommendations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_medium"
+                    android:text="@string/no_recommendations"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_size_body_small"
+                    android:visibility="gone"
+                    tools:visibility="gone" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_RV_results"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:padding="@dimen/margin_small"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_event"
+                tools:visibility="visible" />
+
+            <!-- ═══ Empty State ═══ -->
+            <LinearLayout
+                android:id="@+id/search_LAYOUT_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_xxl"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/image_thumbnail"
+                    android:layout_height="@dimen/image_thumbnail"
+                    app:srcCompat="@drawable/ic_search"
+                    app:tint="@color/text_hint"
+                    android:alpha="0.6"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:id="@+id/search_LBL_empty_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/no_results_found"
+                    android:textColor="@color/text_secondary"
+                    android:textAppearance="@style/TextAppearance.StageMate.BodyLarge"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    android:text="@string/try_different_search"
+                    android:textColor="@color/text_hint"
+                    android:textAppearance="@style/TextAppearance.StageMate.BodySmall"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

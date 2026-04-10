@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Skeleton loader item for Notification list -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/background_card"
+    app:strokeColor="@color/stroke_subtle"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium">
+
+        <!-- Icon skeleton -->
+        <View
+            android:id="@+id/skeletonIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Title skeleton -->
+        <View
+            android:id="@+id/skeletonTitle"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toEndOf="@id/skeletonIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/skeletonIcon" />
+
+        <!-- Message skeleton line 1 -->
+        <View
+            android:id="@+id/skeletonMsg1"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toEndOf="@id/skeletonIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/skeletonTitle" />
+
+        <!-- Timestamp skeleton -->
+        <View
+            android:id="@+id/skeletonTimestamp"
+            android:layout_width="80dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toEndOf="@id/skeletonIcon"
+            app:layout_constraintTop_toBottomOf="@id/skeletonMsg1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,71 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        StageMate – Single dark theme.
+        The app design is always dark-purple; no light/night switching.
+        ForceDarkAllowed is disabled to prevent system from auto-inverting.
+    -->
+    <style name="Base.Theme.StageMate" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary colours -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Surface / background -->
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/background_dark</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/background_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/background_dark</item>
+
+        <!-- App gradient window background -->
+        <item name="android:windowBackground">@drawable/gradient_background</item>
+
+        <!-- Poppins Font Family -->
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins</item>
+
+        <!-- Ensure icons are visible on dark surfaces -->
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorControlNormal">@color/text_primary</item>
+
+        <!-- Disable auto dark-mode inversion -->
+        <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
+
+        <!-- Activity transitions -->
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <style name="Theme.StageMate" parent="Base.Theme.StageMate" />
+
+    <!-- Styled dialog overlay for dark theme -->
+    <style name="ThemeOverlay.StageMate.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/card_background_dark</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorPrimary">@color/accent_primary</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.StageMate.Dialog.Title</item>
+    </style>
+
+    <style name="TextAppearance.StageMate.Dialog.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">@font/outfit_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- Window transition animations -->
+    <style name="WindowAnimationTransition">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+</resources>

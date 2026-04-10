@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="@dimen/padding_medium">
+
+    <!-- Back Button -->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/privacy_IMG_back"
+        android:layout_width="@dimen/icon_large"
+        android:layout_height="@dimen/icon_large"
+        android:padding="@dimen/padding_xs"
+        android:contentDescription="@string/cd_close_button"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="@color/text_primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/privacy_LBL_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_policy_title"
+        android:textColor="@color/text_primary"
+        style="@style/TextAppearance.StageMate.DisplaySmall"        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/privacy_IMG_back"
+        app:layout_constraintTop_toTopOf="@id/privacy_IMG_back"
+        app:layout_constraintBottom_toBottomOf="@id/privacy_IMG_back" />
+
+    <!-- ScrollView for Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintTop_toBottomOf="@id/privacy_LBL_title"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Section 1 -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_1_title"
+                android:textColor="@color/text_primary"
+                style="@style/TextAppearance.StageMate.HeadlineSmall"                android:layout_marginBottom="@dimen/margin_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_1_body"
+                android:textColor="@color/text_secondary"
+                style="@style/TextAppearance.StageMate.BodyMedium"                android:layout_marginBottom="@dimen/margin_large" />
+
+            <!-- Section 2 -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_2_title"
+                android:textColor="@color/text_primary"
+                style="@style/TextAppearance.StageMate.HeadlineSmall"                android:layout_marginBottom="@dimen/margin_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_2_body"
+                android:textColor="@color/text_secondary"
+                style="@style/TextAppearance.StageMate.BodyMedium"                android:layout_marginBottom="@dimen/margin_large" />
+
+            <!-- Section 3 -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_3_title"
+                android:textColor="@color/text_primary"
+                style="@style/TextAppearance.StageMate.HeadlineSmall"                android:layout_marginBottom="@dimen/margin_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_3_body"
+                android:textColor="@color/text_secondary"
+                style="@style/TextAppearance.StageMate.BodyMedium"                android:layout_marginBottom="@dimen/margin_large" />
+
+            <!-- Section 4 -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_4_title"
+                android:textColor="@color/text_primary"
+                style="@style/TextAppearance.StageMate.HeadlineSmall"                android:layout_marginBottom="@dimen/margin_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_4_body"
+                android:textColor="@color/text_secondary"
+                style="@style/TextAppearance.StageMate.BodyMedium"                android:layout_marginBottom="@dimen/margin_large" />
+
+            <!-- Section 5 -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_5_title"
+                android:textColor="@color/text_primary"
+                style="@style/TextAppearance.StageMate.HeadlineSmall"                android:layout_marginBottom="@dimen/margin_small" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_section_5_body"
+                android:textColor="@color/text_secondary"
+                style="@style/TextAppearance.StageMate.BodyMedium"                android:layout_marginBottom="@dimen/margin_large" />
+
+            <!-- Last Updated -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_last_updated"
+                android:textColor="@color/text_hint"
+                style="@style/TextAppearance.StageMate.BodySmall"                android:layout_marginTop="@dimen/margin_large"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

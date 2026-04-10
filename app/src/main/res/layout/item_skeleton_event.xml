@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Skeleton loader item for Calendar event list -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    app:cardCornerRadius="@dimen/corner_radius_card"
+    app:cardElevation="@dimen/elevation_card"
+    app:cardBackgroundColor="@color/background_card"
+    app:strokeColor="@color/stroke_subtle"
+    app:strokeWidth="@dimen/stroke_thin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_large">
+
+        <!-- Image skeleton -->
+        <View
+            android:id="@+id/skeleton_IMG_image"
+            android:layout_width="@dimen/image_thumbnail"
+            android:layout_height="@dimen/image_thumbnail"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Title skeleton -->
+        <View
+            android:id="@+id/skeleton_LBL_title"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_xl"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toEndOf="@id/skeleton_IMG_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/skeleton_IMG_image" />
+
+        <!-- Date skeleton -->
+        <View
+            android:id="@+id/skeleton_LBL_date"
+            android:layout_width="120dp"
+            android:layout_height="@dimen/spacing_medium"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toEndOf="@id/skeleton_IMG_image"
+            app:layout_constraintTop_toBottomOf="@id/skeleton_LBL_title" />
+
+        <!-- Location skeleton -->
+        <View
+            android:id="@+id/skeleton_LBL_location"
+            android:layout_width="160dp"
+            android:layout_height="@dimen/spacing_medium"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toEndOf="@id/skeleton_IMG_image"
+            app:layout_constraintTop_toBottomOf="@id/skeleton_LBL_date" />
+
+        <!-- Price skeleton -->
+        <View
+            android:id="@+id/skeleton_LBL_price"
+            android:layout_width="60dp"
+            android:layout_height="@dimen/spacing_medium"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:background="@drawable/skeleton_background"
+            app:layout_constraintStart_toEndOf="@id/skeleton_IMG_image"
+            app:layout_constraintTop_toBottomOf="@id/skeleton_LBL_location" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

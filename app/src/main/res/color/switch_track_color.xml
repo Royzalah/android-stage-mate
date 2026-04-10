@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- ON: vibrant accent purple -->
+    <item android:color="#7C5CFC" android:state_checked="true" />
+    <!-- OFF: muted dark -->
+    <item android:color="#454148" />
+</selector>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ══════════════════════════════════════════════════════
+         StageMate Color System — Dark Theme
+         Based on purple-to-black gradient palette
+         ══════════════════════════════════════════════════════ -->
+
+    <!-- Primary Colors — Used palette tones -->
+    <!-- Secondary Colors — Neutral dark tones for surfaces & cards -->
+    <color name="secondary_s50">#ECEEED</color>
+    <color name="secondary_s400">#21112E</color>
+    <color name="secondary_s500">#121212</color>
+
+    <!-- Neutral Colors — Dark purple tones for backgrounds -->
+    <color name="neutral_n100">#7A6890</color>
+    <color name="neutral_n200">#381945</color>
+    <color name="neutral_n300">#21112E</color>
+    <color name="neutral_n500">#000000</color>
+
+    <!-- Warning Colors -->
+    <color name="warning_w400">#FF9800</color>
+    <color name="warning_w500">#FB8C00</color>
+
+    <!-- Danger Colors -->
+    <color name="danger_d300">#EF5350</color>
+    <color name="danger_d400">#F44336</color>
+    <color name="danger_d500">#E53935</color>
+
+    <!-- Success Colors -->
+    <color name="success_s300">#66BB6A</color>
+    <color name="success_s400">#4CAF50</color>
+    <color name="success_s500">#43A047</color>
+
+    <!-- ══════════════════════════════════════════════════════
+         App Specific Colors
+         ══════════════════════════════════════════════════════ -->
+
+    <!-- Backgrounds — black-based to match the gradient -->
+    <color name="background_dark">#000000</color>
+    <color name="background_card">#1A0E24</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3A0C7</color>
+    <color name="text_hint">#7A6890</color>
+
+    <!-- Accent — Vivid purple from the gradient palette -->
+    <color name="accent_primary">#A64CF6</color>
+    <color name="accent_secondary">#BB6DFB</color>
+    <color name="accent_light">#DCB9FC</color>
+
+    <!-- Buttons -->
+    <color name="button_primary">#A64CF6</color>
+
+    <!-- Status -->
+    <color name="rating_star">#FBBF24</color>
+    <color name="favorite_heart">#EF4444</color>
+
+    <!-- Common Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Gradient -->
+    <color name="gradient_cyan">#00D4FF</color>
+
+    <!-- Theme Colors (for themes.xml) -->
+    <color name="primaryColor">#A64CF6</color>
+    <color name="secondaryColor">#BB6DFB</color>
+    <color name="primaryDarkColor">#7B2ED9</color>
+    <color name="secondaryDarkColor">#A64CF6</color>
+
+    <!-- Named Shortcuts -->
+    <color name="primary">#A64CF6</color>
+    <color name="error">#EF4444</color>
+    <color name="warning">#F59E0B</color>
+    <color name="warning_light">#FEF3C7</color>
+    <color name="success">#10B981</color>
+    <color name="border_color">#381945</color>
+
+    <!-- Card & Surface Colors -->
+    <color name="surface">#1A0E24</color>
+    <color name="card_background_dark">#21112E</color>
+
+    <!-- Occupancy & Status -->
+    <color name="occupancy_caution">#FFC107</color>
+    <color name="status_gray">#9E9E9E</color>
+
+    <!-- Venue Map -->
+    <color name="venue_stage_bg">#1A2332</color>
+
+    <!-- Bottom Navigation -->
+    <color name="bottom_nav_indicator">#33A64CF6</color>
+
+    <!-- Divider -->
+    <color name="divider">#381945</color>
+
+    <!-- Text on Primary -->
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- Card Strokes & Overlays (extracted from hardcoded hex values) -->
+    <color name="stroke_subtle">#1AFFFFFF</color>
+    <color name="stroke_faint">#0DFFFFFF</color>
+    <color name="overlay_dark">#99000000</color>
+    <color name="overlay_semi">#50000000</color>
+    <color name="card_dark_overlay">#CC1A1A1A</color>
+    <color name="text_on_dark">#DDFFFFFF</color>
+    <color name="ripple_on_dark">#40FFFFFF</color>
+    <color name="accent_bg_subtle">#15A64CF6</color>
+    <color name="chip_hot_bg">#E8E53935</color>
+    <color name="shadow_dark">#AA000000</color>
+    <color name="shadow_medium">#80000000</color>
+    <color name="stroke_accent">#40A64CF6</color>
+    <color name="card_input_bg">#201A0E24</color>
+    <color name="input_bg_subtle">#10FFFFFF</color>
+    <color name="input_stroke">#30FFFFFF</color>
+    <color name="stroke_light">#20FFFFFF</color>    <color name="delete_bg_subtle">#40FF6B6B</color>
+    <color name="cvv_bg_subtle">#40FFB347</color>
+    <color name="success_bg_subtle">#1A4CAF50</color>
+
+    <!-- Venue Legend Colors -->    <!-- Venue Map — Arena Court -->
+    <color name="venue_court_hardwood">#5D4037</color>
+    <color name="venue_court_key">#4E342E</color>
+    <color name="venue_court_center_circle">#6D4C41</color>
+    <color name="venue_tier_separator">#37474F</color>
+
+    <!-- Venue Map — Accessibility -->
+    <!-- Venue Map — Stadium -->
+    <color name="venue_pitch_green">#2E7D32</color>
+    <color name="venue_stadium_bg">#1B2631</color>
+
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="@dimen/padding_medium">
+
+    <!-- Title -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/preferred_LBL_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_interests_title"
+        android:textColor="@color/text_primary"
+        android:textAppearance="@style/TextAppearance.StageMate.DisplayMedium"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Subtitle -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/preferred_LBL_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/select_categories_hint"
+        android:textColor="@color/text_secondary"
+        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/margin_small"
+        app:layout_constraintTop_toBottomOf="@id/preferred_LBL_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Selected Count -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/preferred_LBL_selected_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/categories_selected_count"
+        android:textColor="@color/primary"
+        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintTop_toBottomOf="@id/preferred_LBL_subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- RecyclerView for Categories -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/preferred_RV_categories"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/padding_small"
+        app:layout_constraintTop_toBottomOf="@id/preferred_LBL_selected_count"
+        app:layout_constraintBottom_toTopOf="@id/preferred_CV_trending"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Trending Suggestions Opt-In -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/preferred_CV_trending"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:cardCornerRadius="@dimen/corner_radius_card_medium"
+        app:cardElevation="@dimen/elevation_card"
+        app:cardBackgroundColor="@color/background_card"
+        app:strokeColor="@color/stroke_subtle"
+        app:strokeWidth="@dimen/stroke_thin"
+        app:layout_constraintBottom_toTopOf="@id/preferred_BTN_continue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_medium"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/category_icon_size"
+                android:layout_height="@dimen/category_icon_size"
+                android:contentDescription="@string/cd_notifications_icon"
+                app:srcCompat="@drawable/ic_notifications"
+                app:tint="@color/warning_w400" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/margin_small"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trending_opt_in_title"
+                    android:textColor="@color/text_primary"
+                    android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+                    android:fontFamily="@font/poppins_semibold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="@string/trending_opt_in_subtitle"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_size_caption"
+                    android:fontFamily="@font/poppins" />
+
+            </LinearLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/preferred_SWITCH_trending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                app:thumbTint="@color/switch_thumb_color"
+                app:trackTint="@color/switch_track_color" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Continue Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/preferred_BTN_continue"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/continue_btn"
+        android:textColor="@color/text_on_primary"
+        android:textAppearance="@style/TextAppearance.StageMate.LabelLarge"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@drawable/bg_gradient_button"
+        app:backgroundTint="@null"
+        android:enabled="false"
+        app:cornerRadius="@dimen/corner_radius_pill"
+        app:elevation="@dimen/elevation_card"
+        android:layout_marginBottom="@dimen/margin_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

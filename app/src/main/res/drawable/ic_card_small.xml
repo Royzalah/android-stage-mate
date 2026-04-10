@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="16dp"
+    android:height="11dp"
+    android:viewportWidth="16"
+    android:viewportHeight="11">
+
+    <!-- Card body -->
+    <path
+        android:pathData="M1.5,1 L14.5,1 C15.05,1 15.5,1.45 15.5,2 L15.5,9 C15.5,9.55 15.05,10 14.5,10 L1.5,10 C0.95,10 0.5,9.55 0.5,9 L0.5,2 C0.5,1.45 0.95,1 1.5,1 Z"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- Magnetic stripe -->
+    <path
+        android:pathData="M0.5,4 L15.5,4"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+</vector>

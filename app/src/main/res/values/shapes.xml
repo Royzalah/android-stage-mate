@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+    Material Design 3 Shape System
+    Based on: https://m3.material.io/styles/shape/overview
+    -->
+    
+    <!-- Shape Scale - Corner Radius -->
+    
+    <!-- None (0dp) - Full rectangle, sharp corners -->
+    <dimen name="shape_corner_none">0dp</dimen>
+    
+    <!-- Extra Small (4dp) - Small components like chips -->
+    <dimen name="shape_corner_extra_small">4dp</dimen>
+    
+    <!-- Small (8dp) - Cards, small buttons -->
+    <dimen name="shape_corner_small">8dp</dimen>
+    
+    <!-- Medium (12dp) - Standard cards, dialogs -->
+    <dimen name="shape_corner_medium">12dp</dimen>
+    
+    <!-- Large (16dp) - Large cards, bottom sheets -->
+    <dimen name="shape_corner_large">16dp</dimen>
+    
+    <!-- Extra Large (28dp) - Hero elements, FABs -->
+    <dimen name="shape_corner_extra_large">28dp</dimen>
+    
+    <!-- Full (50%) - Pills, fully rounded -->
+    <dimen name="shape_corner_full">999dp</dimen>
+    
+    <!-- Common Component Shapes -->
+    
+    <!-- Cards -->
+    <dimen name="shape_card">@dimen/shape_corner_medium</dimen>
+    <dimen name="shape_card_elevated">@dimen/shape_corner_medium</dimen>
+    
+    <!-- Buttons -->
+    <dimen name="shape_button">@dimen/shape_corner_full</dimen>
+    <dimen name="shape_button_text">@dimen/shape_corner_none</dimen>
+    <dimen name="shape_button_outlined">@dimen/shape_corner_full</dimen>
+    
+    <!-- Chips -->
+    <dimen name="shape_chip">@dimen/shape_corner_small</dimen>
+    
+    <!-- Dialogs -->
+    <dimen name="shape_dialog">@dimen/shape_corner_extra_large</dimen>
+    
+    <!-- Bottom Sheets -->
+    <dimen name="shape_bottom_sheet">@dimen/shape_corner_extra_large</dimen>
+    
+    <!-- FAB -->
+    <dimen name="shape_fab">@dimen/shape_corner_large</dimen>
+    <dimen name="shape_fab_extended">@dimen/shape_corner_large</dimen>
+    
+    <!-- Text Fields -->
+    <dimen name="shape_text_field">@dimen/shape_corner_extra_small</dimen>
+    
+    <!-- Snackbar -->
+    <dimen name="shape_snackbar">@dimen/shape_corner_extra_small</dimen>
+    
+    <!-- Navigation Drawer -->
+    <dimen name="shape_navigation_drawer">@dimen/shape_corner_large</dimen>
+    
+    <!-- Image Containers -->
+    <dimen name="shape_image_small">@dimen/shape_corner_small</dimen>
+    <dimen name="shape_image_medium">@dimen/shape_corner_medium</dimen>
+    <dimen name="shape_image_large">@dimen/shape_corner_large</dimen>
+</resources>

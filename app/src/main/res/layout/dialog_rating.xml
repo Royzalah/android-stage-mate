@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingHorizontal="@dimen/margin_large"
+    android:paddingTop="@dimen/margin_large"
+    android:paddingBottom="@dimen/margin_medium">
+
+    <!-- Event Title -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rating_LBL_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_primary"
+        android:textAppearance="@style/TextAppearance.StageMate.HeadlineSmall"
+        android:gravity="center"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Subtitle -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rating_LBL_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_xs"
+        android:text="@string/rate_this_event"
+        android:textColor="@color/text_secondary"
+        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+        android:gravity="center" />
+
+    <!-- Rating Bar - INTERACTIVE (not indicator-only) -->
+    <RatingBar
+        android:id="@+id/rating_RATINGBAR_rating"
+        style="?android:attr/ratingBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:numStars="5"
+        android:stepSize="1"
+        android:rating="0"
+        android:isIndicator="false"
+        android:progressTint="@color/accent_primary"
+        android:progressBackgroundTint="@color/text_hint"
+        android:secondaryProgressTint="@color/accent_primary"
+        android:scaleX="1.2"
+        android:scaleY="1.2" />
+
+    <!-- Submit Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/rating_BTN_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/submit_rating"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@drawable/bg_gradient_button"
+        app:backgroundTint="@null"
+        app:cornerRadius="@dimen/corner_radius_pill" />
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_xs"
+    android:layout_marginVertical="@dimen/margin_xs"
+    app:cardCornerRadius="@dimen/corner_radius_card_medium"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/background_card"
+    app:strokeColor="@color/stroke_subtle"
+    app:strokeWidth="@dimen/stroke_thin">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/city_LBL_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="64dp"
+        android:paddingHorizontal="@dimen/padding_medium"
+        android:paddingVertical="@dimen/padding_xs"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/text_primary"
+        android:textAppearance="@style/TextAppearance.StageMate.BodySmall"
+        tools:text="Tel Aviv" />
+
+</com.google.android.material.card.MaterialCardView>

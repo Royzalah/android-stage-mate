@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Premium Event Card with Animated Gradient Border -->
+<com.roei.stagemate.ui.views.AnimatedGradientBorderLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_medium"
+    android:layout_marginVertical="@dimen/margin_small"
+    android:padding="@dimen/stroke_medium"
+    android:clipToPadding="true">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/event_card_corner_radius"
+        app:cardElevation="@dimen/elevation_card"
+        app:strokeWidth="0dp"
+        app:cardBackgroundColor="@color/background_card"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="false"
+        android:focusable="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ═══ HERO IMAGE ═══ -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/event_IMG_poster"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/event_card_content_height"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/event_poster"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.StageMate.EventImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_placeholder" />
+
+        <!-- Dark gradient overlay — covers bottom 70% -->
+        <View
+            android:id="@+id/event_VIEW_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/event_image_height_compact"
+            android:background="@drawable/gradient_overlay"
+            app:layout_constraintBottom_toBottomOf="@id/event_IMG_poster" />
+
+        <!-- ═══ BADGES ON IMAGE ═══ -->
+
+        <!-- HOT badge — top-left, bold red -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/event_CHIP_hot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_xl"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:text="@string/hot_badge"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_caption"
+            android:fontFamily="@font/poppins_bold"
+            android:visibility="gone"
+            app:chipBackgroundColor="@color/chip_hot_bg"
+            app:chipCornerRadius="@dimen/chip_corner_radius"
+            app:chipMinHeight="@dimen/chip_min_height"
+            app:chipMinTouchTargetSize="0dp"
+            app:chipStrokeColor="@color/ripple_on_dark"
+            app:chipStrokeWidth="@dimen/stroke_hairline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <!-- Date badge — top-left, below HOT -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/event_CV_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_xl"
+            android:layout_marginTop="@dimen/margin_small"
+            app:cardCornerRadius="@dimen/corner_radius_card_small"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/overlay_dark"
+            app:strokeColor="@color/stroke_light"
+            app:strokeWidth="@dimen/stroke_hairline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_CHIP_hot">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/spacing_medium"
+                android:paddingVertical="5dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/event_LBL_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_caption"
+                    android:fontFamily="@font/poppins_semibold"
+                    tools:text="25 Dec" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Rating pill — top-right, gold accent -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/event_CV_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_xl"
+            android:layout_marginTop="@dimen/spacing_xl"
+            app:cardCornerRadius="@dimen/chip_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/card_dark_overlay"
+            app:strokeColor="@color/stroke_light"
+            app:strokeWidth="@dimen/stroke_hairline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/spacing_medium"
+                android:paddingVertical="@dimen/padding_xs">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/event_IMG_star"
+                    android:layout_width="@dimen/spacing_xl"
+                    android:layout_height="@dimen/spacing_xl"
+                    android:contentDescription="@null"
+                    app:tint="@color/rating_star"
+                    app:srcCompat="@drawable/ic_star" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/event_LBL_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_xs"
+                    android:textColor="@color/rating_star"
+                    android:textSize="@dimen/text_size_body_small"
+                    android:fontFamily="@font/poppins_bold"
+                    tools:text="4.5" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Favorite heart — matching badge style -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/event_CV_favorite"
+            android:layout_width="@dimen/image_card"
+            android:layout_height="@dimen/image_card"
+            android:layout_marginEnd="@dimen/spacing_xl"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/card_dark_overlay"
+            app:strokeColor="@color/stroke_light"
+            app:strokeWidth="@dimen/stroke_hairline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/event_CV_rating">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/event_IMG_favorite"
+                android:layout_width="@dimen/icon_medium"
+                android:layout_height="@dimen/icon_medium"
+                android:layout_gravity="center"
+                android:contentDescription="@string/favorite"
+                app:srcCompat="@drawable/ic_heart_empty" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══ TEXT ON GRADIENT ═══ -->
+
+        <!-- Event Title — larger, bolder -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/event_LBL_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_xl"
+            android:fontFamily="@font/outfit_semibold"
+            android:lineSpacingExtra="-1sp"
+            android:shadowColor="@color/shadow_dark"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="6"
+            app:layout_constraintBottom_toTopOf="@id/event_LAYOUT_bottom_row"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Noa Kirel - Concert 2025" />
+
+        <!-- Category pill + Price row — on image -->
+        <LinearLayout
+            android:id="@+id/event_LAYOUT_bottom_row"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@id/event_IMG_poster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Category pill with background -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/event_LBL_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/spacing_medium"
+                android:paddingVertical="3dp"
+                android:background="@drawable/bg_glass_card"
+                android:contentDescription="@string/category_label"
+                android:textColor="@color/text_on_dark"
+                android:textSize="@dimen/text_size_caption"
+                android:fontFamily="@font/poppins_semibold"
+                android:letterSpacing="0.04"
+                tools:text="Music" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Price — bold, white -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/event_LBL_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_large"
+                android:fontFamily="@font/poppins_bold"
+                android:shadowColor="@color/shadow_medium"
+                android:shadowDx="0"
+                android:shadowDy="1"
+                android:shadowRadius="3"
+                tools:text="₪150" />
+
+        </LinearLayout>
+
+        <!-- ═══ BOTTOM INFO BAR ═══ -->
+        <View
+            android:id="@+id/event_VIEW_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:background="@color/accent_bg_subtle"
+            app:layout_constraintTop_toBottomOf="@id/event_IMG_poster" />
+
+        <LinearLayout
+            android:id="@+id/event_LAYOUT_info_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/padding_medium"
+            android:paddingVertical="@dimen/spacing_large"
+            app:layout_constraintTop_toBottomOf="@id/event_VIEW_divider">
+
+            <!-- Location icon + text -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/event_IMG_location_icon"
+                android:layout_width="@dimen/spacing_xl"
+                android:layout_height="@dimen/spacing_xl"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_location"
+                app:tint="@color/accent_secondary" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/event_LBL_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_small"
+                android:fontFamily="@font/poppins"
+                tools:text="Menora Mivtachim Arena, Tel Aviv" />
+
+            <!-- Participants icon + text -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/event_IMG_participants_icon"
+                android:layout_width="@dimen/spacing_xl"
+                android:layout_height="@dimen/spacing_xl"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_people"
+                app:tint="@color/accent_secondary" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/event_LBL_participants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_small"
+                android:fontFamily="@font/poppins"
+                tools:text="150+ Going" />
+
+        </LinearLayout>
+
+        <!-- Hidden Book Now button — binding compatibility -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/event_BTN_book_now"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</com.roei.stagemate.ui.views.AnimatedGradientBorderLayout>

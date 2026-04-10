@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Material Design 3 Progress Dialog -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_large"
+    android:gravity="center"
+    android:background="@drawable/snackbar_background">
+
+    <!-- Lottie Loading Animation (primary) -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_LOTTIE_progress"
+        android:layout_width="@dimen/image_thumbnail"
+        android:layout_height="@dimen/image_thumbnail"
+        app:lottie_rawRes="@raw/loading_animation"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true" />
+
+    <!-- Material3 Circular Progress (fallback when Lottie is hidden) -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/loading_PB_circular"
+        style="@style/Widget.Material3.CircularProgressIndicator"
+        android:layout_width="@dimen/icon_xl"
+        android:layout_height="@dimen/icon_xl"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/accent_primary"
+        app:trackColor="@color/surface" />
+
+    <!-- Progress Message -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/loading_LBL_message"
+        style="@style/TextAppearance.StageMate.BodyMedium"        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="@string/loading"
+        android:textColor="@color/text_primary"
+        android:gravity="center" />
+
+</LinearLayout>

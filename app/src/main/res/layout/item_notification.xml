@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    app:cardCornerRadius="@dimen/corner_radius_card"
+    app:cardElevation="@dimen/elevation_card"
+    app:cardBackgroundColor="@color/background_card"
+    app:strokeColor="@color/stroke_subtle"
+    app:strokeWidth="@dimen/stroke_thin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium">
+
+        <!-- Type Icon -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/notification_IMG_icon"
+            android:layout_width="@dimen/icon_xl"
+            android:layout_height="@dimen/icon_xl"
+            android:background="@drawable/circle_background_success"
+            android:padding="@dimen/padding_small"
+            app:srcCompat="@drawable/ic_check"
+            app:tint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Title -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/notification_LBL_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:textColor="@color/text_primary"
+            style="@style/TextAppearance.StageMate.BodyMedium"
+            app:layout_constraintEnd_toStartOf="@id/notification_BTN_delete"
+            app:layout_constraintStart_toEndOf="@id/notification_IMG_icon"
+            app:layout_constraintTop_toTopOf="@id/notification_IMG_icon"
+            tools:text="Payment Successful!" />
+
+        <!-- Message -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/notification_LBL_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:textColor="@color/text_secondary"
+            style="@style/TextAppearance.StageMate.BodySmall"
+            app:layout_constraintEnd_toStartOf="@id/notification_BTN_delete"
+            app:layout_constraintStart_toStartOf="@id/notification_LBL_title"
+            app:layout_constraintTop_toBottomOf="@id/notification_LBL_title"
+            tools:text="Your booking SM1234567 was confirmed." />
+
+        <!-- Timestamp -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/notification_LBL_timestamp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:textColor="@color/text_hint"
+            android:textAppearance="@style/TextAppearance.StageMate.LabelSmall"
+            app:layout_constraintEnd_toStartOf="@id/notification_BTN_delete"
+            app:layout_constraintStart_toStartOf="@id/notification_LBL_title"
+            app:layout_constraintTop_toBottomOf="@id/notification_LBL_message"
+            tools:text="2 minutes ago" />
+
+        <!-- Unread dot indicator -->
+        <View
+            android:id="@+id/notification_VIEW_indicator"
+            android:layout_width="@dimen/unread_dot_size"
+            android:layout_height="@dimen/unread_dot_size"
+            android:background="@drawable/circle_indicator"
+            app:layout_constraintEnd_toStartOf="@id/notification_BTN_delete"
+            app:layout_constraintTop_toTopOf="@id/notification_LBL_title"
+            app:layout_constraintBottom_toBottomOf="@id/notification_LBL_title" />
+
+        <!-- Delete Button -->
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/notification_BTN_delete"
+            android:layout_width="@dimen/button_height_small"
+            android:layout_height="@dimen/button_height_small"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete"
+            android:padding="@dimen/spacing_small"
+            app:srcCompat="@drawable/ic_delete"
+            app:tint="@color/text_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

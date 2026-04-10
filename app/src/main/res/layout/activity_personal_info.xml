@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="@dimen/padding_medium">
+
+    <!-- Title -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/personal_info_LBL_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/personal_info_title"
+        android:textColor="@color/text_primary"
+        android:textAppearance="@style/TextAppearance.StageMate.TitleLarge"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Name Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personal_info_TIL_name"
+        style="@style/Widget.StageMate.TextInputLayout.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:hint="@string/name"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_LBL_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personal_info_EDT_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textColor="@color/text_primary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Email Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personal_info_TIL_email"
+        style="@style/Widget.StageMate.TextInputLayout.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:hint="@string/email"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_TIL_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personal_info_EDT_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/text_primary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Phone Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personal_info_TIL_phone"
+        style="@style/Widget.StageMate.TextInputLayout.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:hint="@string/phone"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_TIL_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personal_info_EDT_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textColor="@color/text_primary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- City Input -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/personal_info_TIL_city"
+        style="@style/Widget.StageMate.TextInputLayout.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:hint="@string/city"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_TIL_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/personal_info_EDT_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:textColor="@color/text_primary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Save Button - Pill Gradient -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/personal_info_BTN_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_large"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/save_changes"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@drawable/bg_gradient_button"
+        app:backgroundTint="@null"
+        app:cornerRadius="@dimen/corner_radius_pill"
+        app:elevation="@dimen/elevation_card"
+        app:layout_constraintTop_toBottomOf="@id/personal_info_TIL_city" />
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/personal_info_PB_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

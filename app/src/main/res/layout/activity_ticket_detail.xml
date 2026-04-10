@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium">
+
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/ticketDetail_BTN_back"
+            android:layout_width="@dimen/button_height_small"
+            android:layout_height="@dimen/button_height_small"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            app:srcCompat="@drawable/ic_arrow_left"
+            app:tint="@color/text_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticketDetail_LBL_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:text="@string/ticket_details_header"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_xl"
+            android:fontFamily="@font/outfit_semibold"
+            app:layout_constraintStart_toEndOf="@id/ticketDetail_BTN_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ticketDetail_BTN_back"
+            app:layout_constraintBottom_toBottomOf="@id/ticketDetail_BTN_back" />
+
+        <!-- Event Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ticketDetail_IMG_poster"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_placeholder"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Rounded16"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_BTN_back" />
+
+        <!-- Status Badge -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticketDetail_LBL_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@drawable/bg_ticket_status_upcoming"
+            android:paddingHorizontal="@dimen/spacing_large"
+            android:paddingVertical="@dimen/padding_xs"
+            android:textColor="@color/success_s400"
+            android:textSize="@dimen/text_size_caption"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_IMG_poster"
+            tools:text="Upcoming" />
+
+        <!-- Type Badge -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticketDetail_LBL_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:background="@drawable/bg_ticket_type_badge"
+            android:paddingHorizontal="@dimen/spacing_large"
+            android:paddingVertical="@dimen/padding_xs"
+            android:textColor="@color/accent_primary"
+            android:textSize="@dimen/text_size_caption"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintBaseline_toBaselineOf="@id/ticketDetail_LBL_status"
+            app:layout_constraintStart_toEndOf="@id/ticketDetail_LBL_status"
+            tools:text="Regular" />
+
+        <!-- Event Title -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticketDetail_LBL_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_xxl"
+            android:fontFamily="@font/outfit_semibold"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_LBL_status"
+            tools:text="Noa Kirel - Concert 2026" />
+
+        <!-- Info Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ticketDetail_CARD_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeColor="@color/stroke_subtle"
+            app:strokeWidth="@dimen/stroke_thin"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_LBL_title">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_medium">
+
+                <!-- Date Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_small">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        app:srcCompat="@drawable/ic_calendar"
+                        app:tint="@color/white" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/ticketDetail_LBL_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="@dimen/text_size_body"
+                        tools:text="25 Apr 2026" />
+                </LinearLayout>
+
+                <!-- Time Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_small">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        app:srcCompat="@drawable/ic_time"
+                        app:tint="@color/white" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/ticketDetail_LBL_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="@dimen/text_size_body"
+                        tools:text="20:00 - 23:00" />
+                </LinearLayout>
+
+                <!-- Location Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/margin_small">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_small"
+                        android:layout_height="@dimen/icon_small"
+                        app:srcCompat="@drawable/ic_location"
+                        app:tint="@color/white" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/ticketDetail_LBL_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="@dimen/text_size_body"
+                        tools:text="Park HaYarkon, Tel Aviv" />
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/margin_small"
+                    android:background="@color/stroke_subtle" />
+
+                <!-- Seat Details Grid -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/margin_xs">
+
+                    <!-- Entry -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/seat_entry"
+                            android:textColor="@color/text_hint"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/ticketDetail_LBL_entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="@dimen/text_size_body"
+                            tools:text="1" />
+                    </LinearLayout>
+
+                    <!-- Section -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/seat_section"
+                            android:textColor="@color/text_hint"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/ticketDetail_LBL_section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="@dimen/text_size_body"
+                            tools:text="A" />
+                    </LinearLayout>
+
+                    <!-- Row -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/seat_row"
+                            android:textColor="@color/text_hint"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/ticketDetail_LBL_row"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="@dimen/text_size_body"
+                            tools:text="D" />
+                    </LinearLayout>
+
+                    <!-- Seat -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/seat_number"
+                            android:textColor="@color/text_hint"
+                            android:fontFamily="@font/poppins"
+                            android:textSize="@dimen/text_size_small" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/ticketDetail_LBL_seat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="@dimen/text_size_body"
+                            tools:text="4" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Booking Reference Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ticketDetail_CARD_booking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeColor="@color/stroke_subtle"
+            app:strokeWidth="@dimen/stroke_thin"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_CARD_info">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/padding_medium">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/booking_reference"
+                    android:textColor="@color/text_hint"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/text_size_small" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/ticketDetail_LBL_reference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="@dimen/text_size_medium"
+                    android:letterSpacing="0.1"
+                    tools:text="SM1774202020734" />
+
+                <!-- QR Code -->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ticketDetail_IMG_qrCode"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@color/white"
+                    android:padding="@dimen/padding_small"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Rounded8"
+                    android:contentDescription="@string/qr_not_available" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/scan_for_details"
+                    android:textColor="@color/text_hint"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/text_size_small" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Price Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ticketDetail_CARD_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            app:cardBackgroundColor="@color/background_card"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:cardElevation="@dimen/elevation_card"
+            app:strokeColor="@color/stroke_subtle"
+            app:strokeWidth="@dimen/stroke_thin"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_CARD_booking">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_medium">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/total_paid"
+                    android:textColor="@color/text_secondary"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/text_size_body" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/ticketDetail_LBL_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent_primary"
+                    android:fontFamily="@font/poppins_bold"
+                    android:textSize="@dimen/text_size_xl"
+                    tools:text="&#x20AA;303" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/ticketDetail_LBL_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_xs"
+                    android:textColor="@color/text_hint"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="x2" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Purchase Date -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ticketDetail_LBL_purchaseDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:gravity="center"
+            android:textColor="@color/text_hint"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_CARD_price"
+            tools:text="Purchased on 10 Apr 2026" />
+
+        <!-- Download Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ticketDetail_BTN_download"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:text="@string/download"
+            android:textColor="@color/accent_primary"
+            android:textAlignment="center"
+            app:cornerRadius="@dimen/corner_radius_pill"
+            app:iconGravity="textStart"
+            app:iconTint="@color/accent_primary"
+            app:strokeColor="@color/accent_primary"
+            app:strokeWidth="@dimen/stroke_thin"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_LBL_purchaseDate" />
+
+        <!-- View Event Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ticketDetail_BTN_viewEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:text="@string/view_event_details"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/accent_primary"
+            app:cornerRadius="@dimen/corner_radius_pill"
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_BTN_download" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

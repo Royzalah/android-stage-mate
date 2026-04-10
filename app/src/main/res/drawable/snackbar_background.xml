@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+M3 Snackbar Background
+Rounded corners with extra small shape
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    
+    <solid android:color="@color/neutral_n500" />
+    
+    <corners android:radius="@dimen/shape_snackbar" />
+</shape>

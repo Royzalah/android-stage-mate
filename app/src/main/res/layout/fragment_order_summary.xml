@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:padding="@dimen/padding_medium"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/order_BTN_next"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- ─── Event Card (Redesigned — large image hero) ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/order_CARD_event"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:shapeAppearance="@style/ShapeAppearance.StageMate.CardTopRounded"
+                app:cardElevation="@dimen/elevation_large"
+                app:cardBackgroundColor="@color/card_background_dark"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Hero Image -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/order_IMG_event"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="@string/event_name"
+                            android:src="@drawable/placeholder_event"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Rounded28" />
+
+                        <!-- Gradient overlay for readability -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/image_thumbnail"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/gradient_bottom_fade" />
+
+                    </FrameLayout>
+
+                    <!-- Content below image -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/padding_medium">
+
+                        <!-- Event Title -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/order_LBL_event_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/event_name"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_xl"
+                            android:fontFamily="@font/poppins_bold"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            tools:text="Noa Kirel - Live in Concert" />
+
+                        <!-- Date + Time row -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/order_LBL_event_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:text="@string/event_date_label"
+                            android:textColor="@color/text_secondary"
+                            android:drawableStart="@drawable/ic_calendar"
+                            android:drawablePadding="@dimen/padding_small"
+                            android:drawableTint="@color/accent_secondary"
+                            style="@style/TextAppearance.StageMate.BodyMedium"
+                            tools:text="25 Dec 2025 · 20:30" />
+
+                        <!-- Location row -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/order_LBL_event_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_xs"
+                            android:text="@string/location"
+                            android:textColor="@color/text_secondary"
+                            android:drawableStart="@drawable/ic_location"
+                            android:drawablePadding="@dimen/padding_small"
+                            android:drawableTint="@color/accent_secondary"
+                            style="@style/TextAppearance.StageMate.BodyMedium"
+                            tools:text="Menora Mivtachim Arena, Tel Aviv" />
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/divider_height"
+                            android:layout_marginTop="@dimen/spacing_large"
+                            android:layout_marginBottom="@dimen/margin_small"
+                            android:background="@color/divider" />
+
+                        <!-- Ticket Type row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/margin_xs">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/ticket_type_label"
+                                android:textColor="@color/text_secondary"
+                                style="@style/TextAppearance.StageMate.BodyMedium" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/order_LBL_ticket_type"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:fontFamily="@font/poppins_semibold"
+                                style="@style/TextAppearance.StageMate.BodyMedium"
+                                tools:text="VIP" />
+
+                        </LinearLayout>
+
+                        <!-- Quantity row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/margin_xs">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/number_of_tickets_label"
+                                android:textColor="@color/text_secondary"
+                                style="@style/TextAppearance.StageMate.BodyMedium" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/order_LBL_ticket_quantity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:fontFamily="@font/poppins_semibold"
+                                style="@style/TextAppearance.StageMate.BodyMedium"
+                                tools:text="2" />
+
+                        </LinearLayout>
+
+                        <!-- Seats (conditional) -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/order_LBL_ticket_seats"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_small"
+                            android:text="@string/seats_label_placeholder"
+                            android:textColor="@color/accent_secondary"
+                            android:lineSpacingExtra="@dimen/spacing_tiny"
+                            android:visibility="gone"
+                            style="@style/TextAppearance.StageMate.BodySmall"
+                            tools:text="VIP Front:\n  Row A, Seat 5  —  ₪450"
+                            tools:visibility="visible" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ─── Price Summary Card ─── -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/order_CARD_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                app:cardCornerRadius="@dimen/corner_radius_card_medium"
+                app:cardElevation="@dimen/elevation_large"
+                app:cardBackgroundColor="@color/primary"
+                app:layout_constraintTop_toBottomOf="@id/order_CARD_event"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/order_LBL_amount_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/amount_to_pay"
+                        android:textColor="@color/text_on_primary"
+                        style="@style/TextAppearance.StageMate.BodyMedium" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/order_LBL_total_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_on_primary"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="@dimen/text_size_title"
+                        tools:text="₪450" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- ═══ CANCEL BUTTON ═══ -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/order_BTN_cancel"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:text="@string/cancel_selection"
+        android:textColor="@color/error"
+        android:fontFamily="@font/poppins_semibold"
+        app:cornerRadius="@dimen/corner_radius_pill"
+        app:strokeColor="@color/error"
+        app:strokeWidth="@dimen/stroke_thin"
+        app:icon="@drawable/ic_close"
+        app:iconTint="@color/error"
+        app:iconGravity="start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ═══ NEXT BUTTON ═══ -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/order_BTN_next"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:text="@string/next"
+        android:textColor="@color/text_on_primary"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@drawable/bg_gradient_button"
+        app:backgroundTint="@null"
+        app:cornerRadius="@dimen/corner_radius_pill"
+        app:elevation="@dimen/elevation_card"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconGravity="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

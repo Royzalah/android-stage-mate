@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <!-- Main scrollable content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/tickets_NSV_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_large">
+
+            <!-- Page title -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/my_content_title"
+                android:textColor="@color/text_primary"
+                android:textAppearance="@style/TextAppearance.StageMate.TitleLarge" />
+
+            <!-- ===== SECTION: MY TICKETS (moved to top) ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/margin_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/spacing_xxl"
+                    android:layout_height="@dimen/spacing_xxl"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_ticket"
+                    app:tint="@color/accent_secondary"
+                    android:contentDescription="@null" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:text="@string/my_tickets_title"
+                    android:textColor="@color/text_primary"
+                    android:textAppearance="@style/TextAppearance.StageMate.TitleMedium" />
+            </LinearLayout>
+
+            <!-- Ticket filter tabs -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_medium">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tickets_BTN_upcoming"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/upcoming"
+                        android:textColor="@color/text_primary"
+                        app:strokeColor="@color/accent_primary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/tickets_BTN_past"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:text="@string/past"
+                        android:textColor="@color/text_primary"
+                        app:strokeColor="@color/accent_primary" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tickets_RV_upcoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:padding="@dimen/margin_small"
+                tools:listitem="@layout/item_ticket" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tickets_LBL_no_tickets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:gravity="center"
+                android:padding="@dimen/margin_medium"
+                android:text="@string/no_tickets_yet"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_small"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <!-- ===== SECTION: FAVORITES ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/margin_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/spacing_xxl"
+                    android:layout_height="@dimen/spacing_xxl"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_heart_filled"
+                    app:tint="@color/error"
+                    android:contentDescription="@null" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:text="@string/favorites_section_title"
+                    android:textColor="@color/text_primary"
+                    android:textAppearance="@style/TextAppearance.StageMate.TitleMedium" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tickets_RV_favorites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:padding="@dimen/margin_small"
+                tools:listitem="@layout/item_event" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tickets_LBL_no_favorites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:gravity="center"
+                android:padding="@dimen/margin_medium"
+                android:text="@string/no_favorites_yet"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_small"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+            <!-- ===== SECTION: RECENTLY VIEWED ===== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/margin_medium">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/spacing_xxl"
+                    android:layout_height="@dimen/spacing_xxl"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/ic_time"
+                    app:tint="@color/accent_secondary"
+                    android:contentDescription="@null" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_weight="1"
+                    android:text="@string/recently_viewed_title"
+                    android:textColor="@color/text_primary"
+                    android:textAppearance="@style/TextAppearance.StageMate.TitleMedium" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tickets_RV_recently_viewed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:padding="@dimen/margin_small"
+                tools:listitem="@layout/item_event" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tickets_LBL_no_recently_viewed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:gravity="center"
+                android:padding="@dimen/margin_medium"
+                android:text="@string/no_recently_viewed"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_size_body_small"
+                android:visibility="gone"
+                tools:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="@dimen/padding_medium">
+
+    <!-- Title -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/help_LBL_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/help_support"
+        android:textColor="@color/text_primary"
+        android:fontFamily="@font/poppins_semibold"
+        style="@style/TextAppearance.StageMate.DisplaySmall"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ScrollView for Content -->
+    <ScrollView
+        android:id="@+id/help_scroll_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintTop_toBottomOf="@id/help_LBL_title"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/help_LL_faq_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- FAQ Section Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/margin_medium">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/help_title"
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="@font/poppins_semibold"
+                    style="@style/TextAppearance.StageMate.HeadlineSmall" />
+
+            </LinearLayout>
+
+            <!-- Question 1 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardCornerRadius="@dimen/corner_radius_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin"
+                app:cardElevation="@dimen/elevation_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_q1"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        style="@style/TextAppearance.StageMate.BodyMedium" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_xs"
+                        android:text="@string/help_a1"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:visibility="gone"
+                        style="@style/TextAppearance.StageMate.BodySmall" />
+                        
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Question 2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardCornerRadius="@dimen/corner_radius_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin"
+                app:cardElevation="@dimen/elevation_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_q2"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        style="@style/TextAppearance.StageMate.BodyMedium" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_xs"
+                        android:text="@string/help_a2"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:visibility="gone"
+                        style="@style/TextAppearance.StageMate.BodySmall" />
+                        
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Question 3 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardCornerRadius="@dimen/corner_radius_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin"
+                app:cardElevation="@dimen/elevation_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_q3"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        style="@style/TextAppearance.StageMate.BodyMedium" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_xs"
+                        android:text="@string/help_a3"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:visibility="gone"
+                        style="@style/TextAppearance.StageMate.BodySmall" />
+                        
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Question: Refunds -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardCornerRadius="@dimen/corner_radius_card"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin"
+                app:cardElevation="@dimen/elevation_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_q_refunds"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        style="@style/TextAppearance.StageMate.BodyMedium" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_xs"
+                        android:text="@string/help_a_refunds"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:visibility="gone"
+                        style="@style/TextAppearance.StageMate.BodySmall" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/help_BTN_refund_contact"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:text="@string/contact_us_for_refund"
+                        android:textColor="@color/accent_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:visibility="gone"
+                        app:cornerRadius="@dimen/corner_radius_pill"
+                        app:strokeColor="@color/accent_primary"
+                        app:strokeWidth="@dimen/stroke_thin"
+                        app:icon="@drawable/ic_email"
+                        app:iconTint="@color/accent_primary"
+                        app:iconGravity="start" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Contact Button - Pill Gradient -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/help_BTN_contact_support"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="@string/contact_support"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semibold"
+                android:background="@drawable/bg_gradient_button"
+                app:backgroundTint="@null"
+                app:cornerRadius="@dimen/corner_radius_pill"
+                app:elevation="@dimen/elevation_card" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

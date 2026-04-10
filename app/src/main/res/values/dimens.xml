@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margins & Padding -->
+    <dimen name="margin_xs">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xl">32dp</dimen>
+    
+    <dimen name="padding_xs">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="padding_xl">32dp</dimen>
+    <dimen name="padding_xxl">48dp</dimen>
+
+    <!-- Card -->
+    <dimen name="card_corner_radius">30dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>    
+    <!-- Corner Radius -->
+    <dimen name="corner_radius_small">8dp</dimen>
+    <dimen name="corner_radius_medium">12dp</dimen>
+    <dimen name="corner_radius_large">16dp</dimen>
+    <dimen name="corner_radius_xl">24dp</dimen>
+    
+    <!-- Elevation -->    <dimen name="elevation_medium">4dp</dimen>
+    <dimen name="elevation_large">8dp</dimen>    
+    <!-- Event Card -->    <dimen name="event_image_height">200dp</dimen>
+    <dimen name="event_card_corner_radius">16dp</dimen>
+    
+    <!-- Icons -->
+    <dimen name="icon_small">16dp</dimen>
+    <dimen name="icon_medium">24dp</dimen>
+    <dimen name="icon_large">32dp</dimen>
+    <dimen name="icon_xl">48dp</dimen>
+    
+    <!-- Text Sizes -->
+    <dimen name="text_size_xs">10sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_regular">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xl">20sp</dimen>
+    <dimen name="text_size_xxl">24sp</dimen>
+    <dimen name="text_size_title">28sp</dimen>
+    <dimen name="text_size_heading">32sp</dimen>
+    
+    <!-- Button -->
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_height_small">36dp</dimen>    
+    <!-- Bottom Navigation -->
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="bottom_nav_icon_size">24dp</dimen>
+    
+    <!-- Grid -->    
+    <!-- Rating -->    
+    <!-- Profile Image -->    
+    <!-- Splash Logo -->
+    <!-- Onboarding Dots -->
+    <dimen name="dot_active_size">10dp</dimen>
+    <dimen name="dot_inactive_size">8dp</dimen>
+
+    
+    <!-- Text Sizes (additional) -->
+    <dimen name="text_size_micro">9sp</dimen>
+    <dimen name="text_size_caption">11sp</dimen>
+    <dimen name="text_size_body_small">13sp</dimen>
+    <dimen name="text_size_body_large">15sp</dimen>
+    <dimen name="text_size_body">16sp</dimen>
+    <!-- Spacing -->
+    <dimen name="spacing_tiny">2dp</dimen>
+    <dimen name="spacing_small">6dp</dimen>
+    <dimen name="spacing_medium">10dp</dimen>
+    <dimen name="spacing_large">12dp</dimen>
+    <dimen name="spacing_xl">14dp</dimen>
+    <dimen name="spacing_xxl">20dp</dimen>
+
+    <!-- Stroke Widths -->
+    <dimen name="stroke_hairline">0.5dp</dimen>
+    <dimen name="stroke_thin">1dp</dimen>
+    <dimen name="stroke_medium">1.5dp</dimen>
+
+    <!-- Corner Radius (additional) -->
+    <dimen name="corner_radius_pill">999dp</dimen>
+    <dimen name="corner_radius_card">28dp</dimen>
+    <dimen name="corner_radius_card_medium">20dp</dimen>
+    <dimen name="corner_radius_card_small">10dp</dimen>
+
+    <!-- Elevation (additional) -->
+    <dimen name="elevation_card">6dp</dimen>
+    <dimen name="elevation_high">12dp</dimen>
+
+    <!-- Component Sizes -->
+    <dimen name="image_thumbnail">80dp</dimen>
+    <dimen name="image_small">36dp</dimen>
+    <dimen name="image_medium">40dp</dimen>
+    <dimen name="image_card">44dp</dimen>
+    <dimen name="button_height_large">56dp</dimen>
+    <dimen name="chip_min_height">26dp</dimen>
+    <dimen name="chip_corner_radius">20dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="unread_dot_size">8dp</dimen>
+
+    <!-- Event-Specific -->
+    <dimen name="event_image_height_compact">160dp</dimen>
+    <dimen name="event_card_content_height">230dp</dimen>
+
+    <!-- Payment Card -->
+    <dimen name="payment_card_height">200dp</dimen>
+
+    <!-- Category Selection -->
+    <dimen name="category_icon_size">28dp</dimen>
+
+    <!-- Event Detail -->
+    <dimen name="event_detail_image_height">380dp</dimen>
+    <dimen name="event_detail_card_offset">280dp</dimen>
+
+    <!-- Venue Map -->
+    <dimen name="venue_map_height">250dp</dimen>
+    <!-- Transaction Button -->
+    <!-- Dialog / Trending -->
+    <!-- Animated Border --></resources>

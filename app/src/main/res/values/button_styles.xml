@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+    Material Design 3 Button Styles
+    Based on: https://m3.material.io/components/buttons/overview
+    
+    Button Types:
+    - Filled: High emphasis (primary actions)
+    - Filled Tonal: Medium emphasis (secondary actions)
+    - Elevated: Medium emphasis with elevation
+    - Outlined: Medium emphasis with border
+    - Text: Low emphasis
+    -->
+    
+    <!-- ========== PRIMARY BUTTONS ========== -->    
+    <!-- ========== SECONDARY BUTTONS ========== -->    
+    <!-- ========== ICON BUTTONS ========== -->    
+    <!-- ========== FAB BUTTONS ========== -->    
+    <!-- ========== SEGMENTED BUTTONS ========== -->    
+</resources>

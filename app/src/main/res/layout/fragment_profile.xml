@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium">
+
+        <!-- Header -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/profile_LBL_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile_title"
+            android:textColor="@color/text_primary"
+            android:textAppearance="@style/TextAppearance.StageMate.HeadlineMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Edit Button -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/profile_BTN_edit"
+            android:layout_width="@dimen/icon_large"
+            android:layout_height="@dimen/icon_large"
+            android:padding="@dimen/padding_xs"
+            android:contentDescription="@string/cd_edit_profile"
+            app:srcCompat="@drawable/ic_edit"
+            app:tint="@color/text_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_LBL_title"
+            app:layout_constraintBottom_toBottomOf="@id/profile_LBL_title" />
+
+        <!-- Profile Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profile_CV_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:cardCornerRadius="@dimen/corner_radius_card"
+            app:cardElevation="@dimen/elevation_card"
+            app:cardBackgroundColor="@color/background_card"
+            app:strokeColor="@color/stroke_subtle"
+            app:strokeWidth="@dimen/stroke_thin"
+            app:layout_constraintTop_toBottomOf="@id/profile_LBL_title">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium">
+
+                <!-- Name -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/profile_LBL_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textAppearance="@style/TextAppearance.StageMate.HeadlineLarge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Amandeep Singh" />
+
+                <!-- Email -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/profile_LBL_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    android:textColor="@color/text_secondary"
+                    android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_LBL_name"
+                    tools:text="amang@gmail.com" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Menu Options -->
+        <LinearLayout
+            android:id="@+id/profile_LAYOUT_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/profile_CV_info">
+
+            <!-- Trending Suggestions Toggle -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_CV_trending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_medium"
+                        android:layout_height="@dimen/icon_medium"
+                        android:contentDescription="@string/cd_notifications_icon"
+                        app:srcCompat="@drawable/ic_notifications"
+                        app:tint="@color/accent_secondary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_marginEnd="@dimen/margin_small"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/trending_suggestions_title"
+                            android:textColor="@color/text_primary"
+                            android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_tiny"
+                            android:text="@string/trending_suggestions_subtitle"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_size_caption" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/profile_SWITCH_trending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:thumbTint="@color/switch_thumb_color"
+                        app:trackTint="@color/switch_track_color" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Location Filter -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_CV_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_medium">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/icon_medium"
+                            android:layout_height="@dimen/icon_medium"
+                            android:contentDescription="@string/cd_location_icon"
+                            app:srcCompat="@drawable/ic_location"
+                            app:tint="@color/accent_secondary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/margin_medium"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/location_filter_title"
+                                android:textColor="@color/text_primary"
+                                android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/spacing_tiny"
+                                android:text="@string/location_filter_subtitle"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="@dimen/text_size_caption" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/profile_BTG_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/profile_BTN_location_city"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/location_nearest_city"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textAllCaps="false" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/profile_BTN_location_distance"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/location_by_distance"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textAllCaps="false" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/profile_BTN_location_all"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/location_all_areas"
+                            android:textSize="@dimen/text_size_caption"
+                            android:textAllCaps="false" />
+
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/profile_BTG_radius"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:visibility="gone"
+                        app:singleSelection="true"
+                        app:selectionRequired="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/profile_BTN_radius_15"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/radius_15_km"
+                            android:textAllCaps="false" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/profile_BTN_radius_30"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/radius_30_km"
+                            android:textAllCaps="false" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/profile_BTN_radius_50"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/radius_50_km"
+                            android:textAllCaps="false" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/profile_BTN_radius_100"
+                            style="?attr/materialButtonOutlinedStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/radius_100_km"
+                            android:textAllCaps="false" />
+
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Preferred Categories -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_BTN_preferred_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_medium"
+                        android:layout_height="@dimen/icon_medium"
+                        app:srcCompat="@drawable/ic_heart_filled"
+                        app:tint="@color/accent_secondary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_weight="1"
+                        android:text="@string/preferred_categories_title"
+                        android:textColor="@color/text_primary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Past Events -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_BTN_past_events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_medium"
+                        android:layout_height="@dimen/icon_medium"
+                        android:contentDescription="@string/cd_ticket_icon"
+                        app:srcCompat="@drawable/ic_ticket"
+                        app:tint="@color/accent_secondary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_weight="1"
+                        android:text="@string/past_events_label"
+                        android:textColor="@color/text_primary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Upcoming Events -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_BTN_upcoming_events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_medium"
+                        android:layout_height="@dimen/icon_medium"
+                        android:contentDescription="@string/cd_calendar_icon"
+                        app:srcCompat="@drawable/ic_calendar"
+                        app:tint="@color/accent_secondary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_weight="1"
+                        android:text="@string/upcoming_events_label"
+                        android:textColor="@color/text_primary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Account Settings -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_BTN_security"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_medium"
+                        android:layout_height="@dimen/icon_medium"
+                        android:contentDescription="@string/cd_person_icon"
+                        app:srcCompat="@drawable/ic_person"
+                        app:tint="@color/accent_secondary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_weight="1"
+                        android:text="@string/security"
+                        android:textColor="@color/text_primary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Privacy Policy -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_BTN_privacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_medium"
+                        android:layout_height="@dimen/icon_medium"
+                        android:contentDescription="@string/cd_info_icon"
+                        app:srcCompat="@drawable/ic_info"
+                        app:tint="@color/accent_secondary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_weight="1"
+                        android:text="@string/privacy_policy"
+                        android:textColor="@color/text_primary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Help & FAQ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profile_BTN_help"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:cardCornerRadius="@dimen/corner_radius_large"
+                app:cardElevation="@dimen/elevation_card"
+                app:cardBackgroundColor="@color/background_card"
+                app:strokeColor="@color/stroke_faint"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_medium"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/icon_medium"
+                        android:layout_height="@dimen/icon_medium"
+                        android:contentDescription="@string/cd_faq_icon"
+                        app:srcCompat="@drawable/ic_faq"
+                        app:tint="@color/accent_secondary" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:layout_weight="1"
+                        android:text="@string/help_and_faq"
+                        android:textColor="@color/text_primary"
+                        android:textAppearance="@style/TextAppearance.StageMate.BodyMedium" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Log Out Button - Pill -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/profile_BTN_logout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_large"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:text="@string/log_out"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAppearance="@style/TextAppearance.StageMate.BodyMedium"
+            app:backgroundTint="@color/danger_d400"
+            app:cornerRadius="@dimen/corner_radius_pill"
+            app:layout_constraintTop_toBottomOf="@id/profile_LAYOUT_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

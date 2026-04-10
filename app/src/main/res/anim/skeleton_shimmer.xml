@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Skeleton Loader - Shimmer Animation
+Material Design 3 subtle pulsing animation
+-->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <alpha
+        android:fromAlpha="0.3"
+        android:toAlpha="1.0"
+        android:duration="1500"
+        android:repeatCount="infinite"
+        android:repeatMode="restart"
+        android:interpolator="@android:anim/linear_interpolator" />
+</set>

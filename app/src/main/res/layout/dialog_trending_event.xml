@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_large"
+    app:cardCornerRadius="@dimen/corner_radius_card"
+    app:cardElevation="@dimen/elevation_high"
+    app:cardBackgroundColor="@color/card_background_dark"
+    app:strokeColor="@color/stroke_subtle"
+    app:strokeWidth="@dimen/stroke_thin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- "Trending Now" Badge -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/trending_CV_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/corner_radius_large"
+            app:cardBackgroundColor="@color/primary"
+            app:cardElevation="@dimen/elevation_medium"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/spacing_large"
+                android:paddingVertical="@dimen/padding_xs">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trending_now"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small"
+                    android:fontFamily="@font/poppins_semibold" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Event Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/trending_IMG_event"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_small"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Rounded28"
+            app:layout_constraintTop_toBottomOf="@id/trending_CV_badge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Event Title -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/trending_LBL_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_large"
+            android:fontFamily="@font/outfit_semibold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/trending_IMG_event"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Omer Adam Live Concert" />
+
+        <!-- Event Category -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/trending_LBL_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:textColor="@color/accent_secondary"
+            android:textSize="@dimen/text_size_body_small"
+            android:fontFamily="@font/poppins"
+            app:layout_constraintTop_toBottomOf="@id/trending_LBL_title"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Music" />
+
+        <!-- Event Date -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/trending_LBL_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_body_small"
+            android:fontFamily="@font/poppins"
+            android:drawableStart="@drawable/ic_calendar"
+            android:drawablePadding="@dimen/margin_small"
+            android:drawableTint="@color/text_secondary"
+            app:layout_constraintTop_toBottomOf="@id/trending_LBL_category"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="04 Apr 2026" />
+
+        <!-- Event Location -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/trending_LBL_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_body_small"
+            android:fontFamily="@font/poppins"
+            android:drawableStart="@drawable/ic_location"
+            android:drawablePadding="@dimen/margin_small"
+            android:drawableTint="@color/text_secondary"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/trending_LBL_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Sultan's Pool, Jerusalem" />
+
+        <!-- Buttons Row -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/trending_LBL_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- Not Interested Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/trending_BTN_not_interested"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/image_card"
+                android:layout_weight="1"
+                android:text="@string/not_interested"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_size_small"
+                android:fontFamily="@font/poppins"
+                app:strokeColor="@color/primary"
+                app:cornerRadius="@dimen/corner_radius_pill"
+                app:strokeWidth="@dimen/stroke_medium"
+                android:layout_marginEnd="@dimen/spacing_small" />
+
+            <!-- View Details Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/trending_BTN_view_details"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/image_card"
+                android:layout_weight="1"
+                android:text="@string/view_details"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_small"
+                android:fontFamily="@font/poppins_semibold"
+                app:backgroundTint="@color/accent_primary"
+                app:cornerRadius="@dimen/corner_radius_pill"
+                android:layout_marginStart="@dimen/spacing_small" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

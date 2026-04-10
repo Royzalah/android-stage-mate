@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium">
+
+        <!-- ═══ Success Icon ═══ -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/receipt_IMG_success"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:contentDescription="@string/cd_success_icon"
+            app:srcCompat="@drawable/ic_check"
+            app:tint="@color/success_s400"
+            android:background="@drawable/circle_background"
+            android:backgroundTint="@color/success_bg_subtle"
+            android:padding="@dimen/padding_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- ═══ Success Title ═══ -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/receipt_LBL_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/payment_successful"
+            android:textColor="@color/success_s400"
+            android:textSize="@dimen/text_size_xxl"
+            android:fontFamily="@font/outfit_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_IMG_success" />
+
+        <!-- ═══ Amount ═══ -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/receipt_LBL_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_heading"
+            android:fontFamily="@font/poppins_bold"
+            tools:text="₪450.00"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_LBL_success" />
+
+        <!-- ═══ Receipt Card (Event Details + Barcode) ═══ -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/receipt_CARD_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            app:cardCornerRadius="@dimen/corner_radius_card_medium"
+            app:cardElevation="@dimen/elevation_large"
+            app:cardBackgroundColor="@color/card_background_dark"
+            app:strokeColor="@color/stroke_subtle"
+            app:strokeWidth="@dimen/stroke_thin"
+            app:layout_constraintTop_toBottomOf="@id/receipt_LBL_amount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_medium">
+
+                <!-- Event Image + Title row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/receipt_IMG_event"
+                        android:layout_width="@dimen/button_height_large"
+                        android:layout_height="@dimen/button_height_large"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/cd_event_image"
+                        android:src="@drawable/placeholder_event"
+                        app:shapeAppearanceOverlay="@style/RoundedCornerImageView" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/receipt_LBL_event_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_size_regular"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        tools:text="Noa Kirel - Live in Concert" />
+
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stroke_thin"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:background="@color/divider" />
+
+                <!-- Detail rows -->
+                <!-- Date -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/event_date_label"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="@dimen/text_size_body_small" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/receipt_LBL_event_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/text_size_body_small"
+                        tools:text="25 Dec 2025" />
+
+                </LinearLayout>
+
+                <!-- Time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/time_label"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="@dimen/text_size_body_small" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/receipt_LBL_event_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/text_size_body_small"
+                        tools:text="20:30" />
+
+                </LinearLayout>
+
+                <!-- Venue -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/location"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="@dimen/text_size_body_small" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/receipt_LBL_event_venue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/text_size_body_small"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text="Menora Arena, TLV" />
+
+                </LinearLayout>
+
+                <!-- Tickets -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/number_of_tickets_label"
+                        android:textColor="@color/text_secondary"
+                        android:fontFamily="@font/poppins"
+                        android:textSize="@dimen/text_size_body_small" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/receipt_LBL_quantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="@dimen/text_size_body_small"
+                        tools:text="2" />
+
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/stroke_thin"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:background="@color/divider" />
+
+                <!-- Booking Reference -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/receipt_LBL_reference"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/text_secondary"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="Ref: SM1234567890" />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══ QR Code ═══ -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/receipt_IMG_QRCode"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/margin_large"
+            android:contentDescription="@string/qr_not_available"
+            android:background="@color/white"
+            android:padding="@dimen/padding_small"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Rounded8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_CARD_details" />
+
+        <!-- QR label -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/receipt_LBL_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="@string/scan_for_details"
+            android:textColor="@color/text_hint"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_IMG_QRCode" />
+
+        <!-- Purchase Date -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/receipt_LBL_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textColor="@color/text_hint"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/text_size_caption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_LBL_scan" />
+
+        <!-- ═══ Action Buttons ═══ -->
+
+        <!-- Download Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/receipt_BTN_download"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/download_receipt"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:background="@drawable/bg_gradient_button"
+            app:backgroundTint="@null"
+            app:cornerRadius="@dimen/corner_radius_pill"
+            app:elevation="@dimen/elevation_card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_LBL_date" />
+
+        <!-- Add to Calendar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/receipt_BTN_add_to_calendar"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/add_to_calendar_title"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            app:cornerRadius="@dimen/corner_radius_pill"
+            app:strokeColor="@color/accent_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_BTN_download" />
+
+        <!-- View Tickets -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/receipt_BTN_view_tickets"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/view_tickets"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            app:cornerRadius="@dimen/corner_radius_pill"
+            app:strokeColor="@color/accent_primary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_BTN_add_to_calendar" />
+
+        <!-- Done -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/receipt_BTN_done"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:text="@string/done"
+            android:textColor="@color/text_secondary"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/receipt_BTN_view_tickets" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

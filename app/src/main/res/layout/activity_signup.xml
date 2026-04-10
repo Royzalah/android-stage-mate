@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/gradient_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_large">
+
+        <!-- Removed back button - using system navigation -->
+
+        <!-- Title -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/signup_LBL_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:text="@string/sign_up_title"
+            android:textColor="@color/text_primary"
+            style="@style/TextAppearance.StageMate.DisplaySmall"            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- First Name Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_TIL_first_name"
+            style="@style/Widget.StageMate.TextInputLayout.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:hint="@string/first_name"
+            app:layout_constraintTop_toBottomOf="@id/signup_LBL_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_EDT_first_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/text_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Last Name Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_TIL_last_name"
+            style="@style/Widget.StageMate.TextInputLayout.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/last_name"
+            app:layout_constraintTop_toBottomOf="@id/signup_TIL_first_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_EDT_last_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/text_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_TIL_email"
+            style="@style/Widget.StageMate.TextInputLayout.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/email"
+            app:layout_constraintTop_toBottomOf="@id/signup_TIL_last_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_EDT_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Create Password Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_TIL_password"
+            style="@style/Widget.StageMate.TextInputLayout.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/password"
+            app:endIconMode="password_toggle"
+            app:layout_constraintTop_toBottomOf="@id/signup_TIL_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_EDT_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/text_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Confirm Password Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_TIL_confirm_password"
+            style="@style/Widget.StageMate.TextInputLayout.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/confirm_password"
+            app:endIconMode="password_toggle"
+            app:layout_constraintTop_toBottomOf="@id/signup_TIL_password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signup_EDT_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/text_primary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Sign Up Button - Pill Gradient -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signup_BTN_signup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_large"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:text="@string/sign_up_with_email"
+            android:fontFamily="@font/poppins_semibold"
+            android:background="@drawable/bg_gradient_button"
+            app:backgroundTint="@null"
+            app:cornerRadius="@dimen/corner_radius_pill"
+            app:elevation="@dimen/elevation_card"
+            app:layout_constraintTop_toBottomOf="@id/signup_TIL_confirm_password" />
+
+        <!-- Login Link -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/signup_LBL_login_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:text="@string/already_have_account"
+            android:textColor="@color/text_secondary"
+            style="@style/TextAppearance.StageMate.BodyMedium"            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signup_BTN_signup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

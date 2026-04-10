@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/section_CV_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/spacing_small"
+    app:cardCornerRadius="@dimen/corner_radius_large"
+    app:cardElevation="@dimen/elevation_medium"
+    app:cardBackgroundColor="@color/card_background_dark"
+    app:strokeWidth="@dimen/stroke_thin"
+    app:strokeColor="@color/border_color">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_large">
+
+        <!-- Color indicator -->
+        <View
+            android:id="@+id/section_VIEW_color_dot"
+            android:layout_width="@dimen/spacing_large"
+            android:layout_height="@dimen/spacing_large"
+            android:background="@drawable/circle_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/section_LBL_name"
+            app:layout_constraintBottom_toBottomOf="@id/section_LBL_name" />
+
+        <!-- Section name -->
+        <TextView
+            android:id="@+id/section_LBL_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_size_large"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintStart_toEndOf="@id/section_VIEW_color_dot"
+            app:layout_constraintEnd_toStartOf="@id/section_LBL_type_badge"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Type badge (Standing / Seated) -->
+        <TextView
+            android:id="@+id/section_LBL_type_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacing_large"
+            android:paddingVertical="@dimen/padding_xs"
+            android:background="@drawable/bg_glass_card"
+            android:textSize="@dimen/text_size_small"
+            android:fontFamily="@font/poppins_semibold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/section_LBL_name"
+            app:layout_constraintBottom_toBottomOf="@id/section_LBL_name" />
+
+        <!-- Price range -->
+        <TextView
+            android:id="@+id/section_LBL_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:textColor="@color/accent_light"
+            android:textSize="@dimen/text_size_regular"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintStart_toStartOf="@id/section_LBL_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/section_LBL_name" />
+
+        <!-- Available seats -->
+        <TextView
+            android:id="@+id/section_LBL_available"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_size_small"
+            android:fontFamily="@font/poppins"
+            app:layout_constraintStart_toStartOf="@id/section_LBL_name"
+            app:layout_constraintEnd_toStartOf="@id/section_LBL_selected_badge"
+            app:layout_constraintTop_toBottomOf="@id/section_LBL_price" />
+
+        <!-- Selected badge -->
+        <TextView
+            android:id="@+id/section_LBL_selected_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_primary"
+            android:textSize="@dimen/text_size_small"
+            android:fontFamily="@font/poppins_semibold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/section_LBL_available"
+            app:layout_constraintBottom_toBottomOf="@id/section_LBL_available" />
+
+        <!-- Occupancy progress bar -->
+        <ProgressBar
+            android:id="@+id/section_PB_occupancy"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:max="100"
+            android:progress="50"
+            android:progressDrawable="@android:drawable/progress_horizontal"
+            app:layout_constraintStart_toStartOf="@id/section_LBL_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/section_LBL_available" />
+
+        <!-- Occupancy percentage label -->
+        <TextView
+            android:id="@+id/section_LBL_occupancy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:textSize="@dimen/text_size_caption"
+            android:fontFamily="@font/poppins_semibold"
+            app:layout_constraintStart_toStartOf="@id/section_LBL_name"
+            app:layout_constraintTop_toBottomOf="@id/section_PB_occupancy" />
+
+        <!-- Sold out overlay -->
+        <TextView
+            android:id="@+id/section_LBL_sold_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/section_sold_out"
+            android:textColor="@color/danger_d400"
+            android:textSize="@dimen/text_size_medium"
+            android:fontFamily="@font/poppins_bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

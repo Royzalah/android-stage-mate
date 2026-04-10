@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- APP INFORMATION -->
+    <string name="app_name">StageMate</string>
+
+    <!-- COMMON / GENERAL -->
+    <string name="welcome">Welcome</string>
+    <string name="loading">Loading…</string>
+    <string name="payment_timer_initial">07:00</string>
+    <string name="qr_code_description">QR Code</string>
+    <string name="date_time_separator">%1$s | %2$s</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="back">Back</string>
+    <string name="close">Close</string>
+    <string name="done">Done</string>
+    <string name="share">Share</string>
+    <string name="refresh">Refresh</string>
+
+    <!-- AUTHENTICATION -->
+    <string name="login">Login</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="login_subtitle">Sign in to continue to StageMate</string>
+    <string name="sign_in_with_google">Continue with Google</string>
+    <string name="signup">Sign Up</string>
+    <string name="logout">Log out</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="remember_me">Remember me</string>
+    <!-- NAVIGATION -->
+    <string name="home">Home</string>
+    <string name="ticket">Ticket</string>
+    <string name="notifications">Notifications</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+    <string name="filter">Filter</string>
+    <string name="profile">Profile</string>
+    <string name="map">Map</string>
+    <string name="search">Search</string>
+
+
+    <!-- HOME SCREEN -->    <string name="search_events">Search Events</string>    <string name="greeting_user">Hi, %1$s</string>
+    <string name="greeting_guest">Hi, Guest</string>
+    <string name="default_user_name">User</string>
+
+    <!-- EVENTS -->
+    <string name="book_now">Book Now</string>    <string name="read_more">Read more</string>
+    <string name="about_event">About Event</string>
+    <string name="event_details">Event Details</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="location">Location</string>
+    <string name="venue">Venue</string>
+    <string name="price">Price</string>
+    <string name="rating">Rating</string>
+    <string name="participants">Participants</string>
+    <string name="available">Available</string>
+    <string name="sold_out">Sold Out</string>
+    <string name="sold_out_message">Sorry, all tickets for this event are sold out.\n\nWould you like to see alternative dates?</string>
+    <string name="alternative_dates_title">Alternative Dates Available</string>
+    <!-- EVENT CATEGORIES -->
+    <string name="all">All</string>
+    <string name="music">Music</string>
+    <string name="comedy">Comedy</string>
+    <string name="sport">Sport</string>
+    <string name="theater">Theater</string>
+    <string name="children">Children</string>    <string name="festival">Festival</string>
+
+    <!-- EVENT TYPES -->
+    <string name="upcoming">Upcoming</string>
+    <string name="past">Past</string>    <string name="concert">Concert</string>
+    <string name="sports">Sports</string>
+    <!-- TICKET STATUS -->
+    <string name="status_upcoming">Upcoming</string>
+    <string name="status_past">Past</string>
+    <string name="status_cancelled">Cancelled</string>
+    <string name="status_live_now">Live Now</string>
+
+    <!-- TICKETS -->
+    <string name="no_tickets_yet">No tickets yet</string>
+    <string name="no_past_events">No past events</string>
+    <string name="download_ticket">Download Ticket</string>
+    <string name="ticket_downloaded">Ticket saved to: %1$s</string>
+    <string name="failed_to_download">Failed to download ticket</string>
+    <string name="past_events">Past events</string>
+    <string name="upcoming_events">Upcoming events</string>
+
+    <!-- TICKET TYPES -->
+    <string name="regular">Regular</string>
+    <string name="vip">VIP</string>    <string name="disabled">Disabled</string>
+    <!-- BOOKING / TICKET SELECTION -->
+    <string name="select_ticket_type">Select Ticket Type</string>
+    <string name="quantity">Quantity</string>    <string name="seats_selected">Seats Selected</string>    <string name="discount">Discount</string>    <string name="continue_to_payment">Continue to Payment</string>
+
+    <!-- PAYMENT -->
+    <string name="total">Total</string>
+    <string name="payment">Payment</string>
+    <string name="card_number">Card Number</string>
+    <string name="cardholder_name">Cardholder Name</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="id_number">ID Number</string>
+    <string name="hint_expiry_mmyy">Expiry (MM/YY)</string>
+    <string name="hint_cvv_3_digits">CVV (3 digits)</string>
+    <string name="radius_15_km">15 km</string>
+    <string name="radius_30_km">30 km</string>
+    <string name="radius_50_km">50 km</string>
+    <string name="radius_100_km">100 km</string>
+    <string name="processing">Processing…</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="payment_failed">Payment Failed</string>
+    <string name="field_required">This field is required</string>
+    <string name="invalid_card_number">Invalid card number</string>    <string name="invalid_cvv">Invalid CVV</string>    <string name="invalid_id_number">Invalid ID number</string>
+
+    <!-- RECEIPT -->
+    <string name="booking_reference">Booking Reference</string>
+    <string name="add_to_calendar_title">Add to Calendar</string>
+    <string name="add_to_calendar_message">Would you like to add "%1$s" to your Google Calendar?</string>
+    <string name="error_adding_to_calendar">Could not open calendar app</string>
+    <string name="event_added_to_calendar">Event added to your Google Calendar</string>
+    <string name="calendar_fallback_used">Opening calendar app instead</string>
+    <string name="booked_via">Booked via</string>
+    <string name="read_less">Read less</string>
+    <string name="purchase_date">Purchase Date</string>
+    <string name="receipt_saved">Receipt saved</string>
+    <string name="receipt_download_failed">Failed to save receipt</string>
+    <string name="view_tickets">View Tickets</string>
+
+    <!-- PROFILE -->
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="city">City</string>    <string name="security">Security</string>
+    <string name="help">Help</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="help_support"><![CDATA[Help & Support]]></string>
+    <string name="profile_updated">Profile updated</string>
+    <!-- PROFILE - INPUT VALIDATION -->
+    <string name="enter_name">Please enter your name</string>
+    <string name="enter_email">Please enter your email</string>
+    <string name="enter_valid_email">Please enter a valid email</string>
+    <string name="enter_valid_phone">Please enter a valid phone number</string>
+    <string name="loading_from_local">Loading from local storage</string>
+
+    <!-- SEARCH -->
+    <string name="no_results_found">No results found for</string>
+    <!-- FAVORITES -->
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
+    <string name="failed_to_update_favorite">Failed to update favorite</string>
+    <!-- NOTIFICATIONS -->
+    <string name="notification_deleted">Notification deleted</string>
+    <string name="notification_delete_failed">Failed to delete notification</string>    <string name="no_notifications">No notifications</string>
+    <string name="clear_all">Clear All</string>    <string name="login_to_see_notifications">Please log in to see notifications</string>
+    <string name="notification_update_failed">Failed to update notification</string>
+    <string name="notifications_cleared">All notifications cleared</string>
+    <string name="undo">Undo</string>
+    <string name="notifications_clear_failed">Failed to clear notifications</string>
+    <string name="no_notifications_to_clear">No notifications to clear</string>
+    <string name="clear_all_notifications_title">Clear All Notifications</string>
+    <string name="clear_all_notifications_message">Are you sure you want to delete all notifications?</string>
+    <!-- PERMISSIONS -->
+    <!-- ERROR MESSAGES -->
+    <string name="error_loading_event">Error loading event</string>    <string name="error_missing_data">Error: Missing data</string>
+    <string name="not_enough_tickets">Not enough tickets available</string>
+    <string name="booking_failed">Booking failed</string>
+
+    <!-- SEAT SELECTION -->    <string name="seat_max_reached">You have selected the maximum number of seats</string>    <string name="seat_reserved_by_other">This seat is reserved by another user</string>
+
+    <!-- GENERAL UI -->    <string name="verify">Verify</string>    <string name="share_via">Share via…</string>
+
+    <!-- MISC -->
+    <string name="failed_to_download_ticket">Failed to download ticket</string>    <string name="no_events_available">No events available</string>
+    <string name="not_logged_in">Not logged in</string>
+    <string name="please_log_in">Please log in</string>    <string name="failed_to_generate_qr">Failed to generate QR code</string>
+    <string name="qr_not_available">QR code not available</string>    <string name="notifications_disabled_warning">Notifications will not be enabled without permission</string>
+    <string name="notification_permission_event_updates">Notification permission is required for event updates</string>
+    <string name="please_fill_all_fields">Please fill all fields</string>
+    <string name="passwords_dont_match">Passwords do not match</string>
+    <string name="password_min_length">Password must be at least 6 characters</string>
+    <string name="password_changed_successfully">Password changed successfully!</string>    <string name="login_required_for_seats">You must be logged in to select seats</string>
+    <string name="error_loading_seat_map">Error loading seat map</string>    <string name="ref_label">Ref:</string>
+    <string name="download">Download</string>
+    <string name="not_interested">Not Interested</string>
+    <string name="view_details">View Details</string>
+    <string name="selected_seats">Selected Seats</string>
+    <string name="or">Or</string>
+    <string name="dont_have_account">Don\'t have an account? Sign Up</string>    <string name="event_name">Event Name</string>
+    <string name="calendar">Calendar</string>
+    <string name="failed_to_change_password">Failed to change password</string>
+    <string name="error_saving_seat">Error saving seat</string>
+    <string name="seat_reserved_for_you">This seat is reserved for you</string>    <string name="no_results_for_query">No results found for &quot;%1$s&quot;</string>    <string name="invalid_expiry">Invalid expiry date</string>    <string name="not_enough_tickets_available">Not enough tickets available</string>    <string name="google_signin_failed">Google sign in failed</string>    <string name="please_verify_email">Please verify your email before logging in.</string>
+    <string name="login_failed">Login failed</string>
+    <string name="invalid_email_format">Please enter a valid email address</string>
+    <string name="no_alternative_dates">No alternative dates found</string>    <string name="event_id_not_found">Error: Event ID not found</string>
+    <string name="verification_email_sent">Verification email sent. Please check your inbox.</string>
+    <string name="signup_error">Sign up error</string>
+
+    <!-- FORMAT STRINGS - use %1$s for text, %1$d for numbers -->    <string name="failed_to_update_profile">Failed to update: %1$s</string>
+    <string name="payment_failed_error">Payment failed: %1$s</string>
+    <!-- UI LABELS -->
+    <string name="trending_now">Trending Now</string>
+    <string name="seat_selection_date_placeholder">Date | Time</string>
+    <string name="seat_selection_location_placeholder">Location</string>
+    <string name="seat_timer_placeholder">Time left: 07:00</string>
+    <string name="seat_available_label">Available</string>
+    <string name="seat_occupied_label">Occupied</string>
+    <string name="seat_selected_label">Selected</string>
+    <string name="seat_selected_price">Seat %1$s selected – ₪%2$.0f</string>
+    <string name="seat_accessible_label">Accessible</string>
+    <string name="seat_selected_orange_label">Selected</string>
+    <string name="seat_disabled_label">Disabled</string>
+    <string name="seats_selected_count">0 Selected</string>
+    <string name="total_price_placeholder">Total: ₪0.00</string>
+    <string name="category_label">Category</string>    <string name="sign_up_title">Sign Up</string>    <string name="sign_up_with_email">Sign up with Email</string>
+    <string name="already_have_account">Already have an account? Sign In</string>    <string name="hot_events_section">Hot Events</string>    <string name="app_tagline">The Smart Event Aggregator</string>
+    <string name="privacy_policy_title">Privacy Policy</string>
+    <string name="privacy_section_1_title">1. Information We Collect</string>
+    <string name="privacy_section_1_body">We collect information you provide directly to us, including your name, email address, phone number, and payment information when you create an account or book tickets.</string>
+    <string name="privacy_section_2_title">2. How We Use Your Information</string>
+    <string name="privacy_section_2_body">We use the information we collect to provide, maintain, and improve our services, process transactions, send you notifications about your bookings, and respond to your comments and questions.</string>
+    <string name="privacy_section_3_title">3. Information Sharing</string>
+    <string name="privacy_section_3_body">We do not share your personal information with third parties except as necessary to provide our services, comply with the law, or protect our rights.</string>
+    <string name="privacy_section_4_title">4. Data Security</string>
+    <string name="privacy_section_4_body">We take reasonable measures to help protect your personal information from loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction.</string>
+    <string name="privacy_section_5_title">5. Your Rights</string>
+    <string name="privacy_section_5_body">You have the right to access, update, or delete your personal information at any time. You can also opt out of receiving promotional communications from us.</string>
+    <string name="privacy_last_updated">Last updated: February 2025</string>
+    <string name="help_and_faq">Help &amp; FAQ</string>
+    <string name="help_title">Frequently Asked Questions</string>
+    <string name="help_q1">How do I book tickets?</string>
+    <string name="help_a1">Browse events, select your preferred event, choose tickets, add to cart, and complete payment.</string>
+    <string name="help_q2">Can I cancel my booking?</string>
+    <string name="help_a2">Yes, you can cancel up to 24 hours before the event. Go to My Tickets and select Cancel.</string>
+    <string name="help_q3">How do I contact support?</string>
+    <string name="help_a3">Email us at support@stagemate.com or call +972-123-4567 (9 AM - 6 PM)</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="help_q_refunds">How do I request a refund?</string>
+    <string name="help_a_refunds">Refund requests are handled on a case-by-case basis. To request a refund, please contact our support team with your booking reference and reason for the request. We will review and get back to you within 2–3 business days.</string>
+    <string name="contact_us_for_refund">Contact Us for Refund</string>
+    <string name="no_email_app">No email app found</string>    <string name="event">Event</string>    <string name="download_receipt">Download Receipt</string>
+    <string name="payment_title">Payment</string>
+    <string name="amount_to_pay">Amount to Pay</string>
+    <string name="ticket_details">Ticket Details</string>
+    <string name="event_date_label">Event Date</string>
+    <string name="time_label">Time</string>
+    <string name="scan_for_details">Scan for ticket details</string>
+    <string name="ticket_type_label">Ticket Type</string>
+    <string name="number_of_tickets_label">Number of Tickets</string>
+    <string name="seats_label_placeholder">Seats: A1, A2, A3</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="secure_encrypted">Your information is secure and encrypted</string>
+    <string name="row_label_placeholder">A</string>
+    <string name="row_label">Row</string>
+    <string name="seat_label">Seat</string>
+    <string name="seat_number_placeholder">1</string>    <string name="increment">+</string>    <string name="filter_music">Music</string>
+    <string name="filter_sports">Sports</string>
+    <string name="filter_theater">Theater</string>
+    <string name="apply_filters">Apply Filters</string>    <string name="choose_interests_title">Choose Your Interests</string>
+    <string name="select_categories_hint">Select at least 3 categories to personalize your experience</string>
+    <string name="categories_selected_count">0/3 selected</string>
+    <string name="security_title">Security</string>
+    <string name="change_password">Change Password</string>
+    <string name="welcome_message">Welcome to StageMate</string>
+    <string name="profile_title">Profile</string>
+    <string name="past_events_label">Past events</string>
+    <string name="upcoming_events_label">Upcoming events</string>
+    <string name="log_out">Log out</string>
+    <string name="notifications_title">Notifications</string>    <string name="calendar_title">Calendar</string>    <string name="hot_badge">HOT</string>
+    <string name="personal_info_title">Personal Information</string>
+    <string name="save_changes">Save Changes</string>    <string name="price_placeholder">₪100</string>
+    <string name="category_music_label">Music</string>
+    <string name="continue_btn">Continue</string>
+    <string name="tel_aviv">Tel-Aviv</string>
+    <string name="categories_selected_count_dynamic">%1$d/%2$d selected</string>
+
+
+    <!-- SEAT TIMER -->
+    <string name="seat_timer_format">Time left: %1$02d:%2$02d</string>
+    <string name="seat_timer_title_expired">Time\'s Up!</string>
+    <string name="seat_timer_message_expired">Your seat reservation has expired. Would you like to start over?</string>
+    <string name="seat_timer_restart">Start Over</string>
+    <!-- PAYMENT TIMER -->
+    <!-- CANCEL SELECTION -->
+    <string name="cancel_selection">Cancel</string>
+    <string name="cancel_selection_confirm_title">Cancel Selection?</string>
+    <string name="cancel_selection_confirm_message">Are you sure you want to go back? Your selected seats will be released.</string>
+    <string name="seats_selected_format">%1$d of %2$d selected</string>
+    <string name="seats_selected_count_format">%1$d selected</string>
+    <string name="please_select_at_least_one_seat">Please select at least one seat</string>
+    <string name="total_price_format">Total: ₪%.0f</string>
+    <string name="price_format">₪%.0f per ticket</string>
+    <string name="tickets_remaining">tickets remaining</string>
+    <string name="buy_tickets">Buy Tickets</string>
+
+
+    <!-- SIGNUP VALIDATION -->
+    <string name="enter_first_name">Please enter your first name</string>
+    <string name="enter_last_name">Please enter your last name</string>
+
+
+    <!-- Welcome messages -->    <string name="default_city">Tel Aviv</string>
+    <string name="guest">Guest</string>
+    <string name="sign_out_confirm">Are you sure you want to sign out?</string>    <string name="edit_profile">Edit Profile</string>    <!-- Availability & Seats -->
+    <string name="only_n_percent_tickets_left">Only %1$d%% of tickets remaining!</string>    <string name="no_available_seats">No seats available for this event</string>
+    <string name="no_accessible_seats_available">No accessible seats currently available</string>
+    <string name="seat_reserved_by_other_seconds">This seat is reserved. Expires in %1$d seconds</string>
+
+    <!-- Filters -->
+    <string name="apply_filters_count">Apply Filters (%1$d)</string>
+
+    <!-- Ticket Types -->
+    <string name="order_summary_title">Order Summary</string>
+    <string name="confirm_and_pay">Confirm &amp; Pay</string>
+    <string name="next">Next</string>
+
+    <!-- MY CONTENT (Tab 3) -->
+    <string name="my_content_title">My Content</string>
+    <string name="favorites_section_title">Favorites</string>
+    <string name="recently_viewed_title">Recently Viewed</string>
+    <string name="recommendations_title">Suggested For You</string>
+    <string name="my_tickets_title">My Tickets</string>
+    <string name="no_favorites_yet">You haven\'t added any favorites yet</string>
+    <string name="no_recently_viewed">No recently viewed events</string>
+    <string name="no_recommendations">Complete your profile to get recommendations</string>
+
+    <!-- SEARCH (Tab 2) -->    <string name="search_results_count">%1$d results found</string>
+    <string name="discover">Discover</string>
+    <string name="find_your_next_experience">Find your next experience</string>
+    <string name="search_events_artists_venues">Search events, artists, venues…</string>
+    <string name="try_different_search">Try a different search term or category</string>
+
+    <!-- ONBOARDING -->
+    <string name="onboarding_title_1">Discover Events</string>
+    <string name="onboarding_desc_1">Browse concerts, theater, sports and more happening near you. Discover trending events and never miss out.</string>
+    <string name="onboarding_title_2">Book Tickets</string>
+    <string name="onboarding_desc_2">Select your perfect seats, choose your section, and pay securely in seconds.</string>
+    <string name="onboarding_title_3">Enjoy the Show</string>
+    <string name="onboarding_desc_3">Digital tickets on your phone, reminders before the show, and easy navigation to the venue.</string>
+    <string name="filter_family">Family</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Get Started</string>
+
+    <!-- TRENDING SUGGESTIONS -->
+    <string name="trending_suggestions_title">Trending Suggestions</string>
+    <string name="trending_suggestions_subtitle">Show trending event popups on home screen</string>
+    <string name="trending_opt_in_title">Get trending event suggestions?</string>
+    <string name="trending_opt_in_subtitle">We\'ll show you hot events when you open the app. You can always change this in Profile settings.</string>
+
+    <!-- VENUE MAP -->
+    <string name="select_section">Select a Section</string>
+    <string name="stage_label">STAGE</string>
+    <string name="field_label">FIELD</string>
+    <string name="court_label">COURT</string>
+    <string name="back_to_sections">Back to Sections</string>
+    <string name="section_available_format">%1$d / %2$d available</string>
+    <string name="section_price_range_format">₪%1$.0f – ₪%2$.0f</string>
+    <string name="section_sold_out">Sold Out</string>
+    <string name="seats_selected_badge">%1$d selected</string>
+    <string name="pricing_guide">Pricing Guide</string>
+    <string name="number_of_tickets">Number of Tickets</string>
+    <string name="section_availability_format">%1$d%% Available</string>
+    <string name="section_almost_full">Almost Full</string>
+    <string name="venue_map_select_seats">Select Seats</string>
+    <string name="venue_map_standing_section">Standing Section</string>    <string name="venue_map_tap_section">Tap a section to view details</string>
+
+    <!-- Notifications -->
+    <string name="purchase_successful_title">Purchase Successful!</string>
+    <string name="purchase_successful_message">You\'re going to %1$s! 🎉\nDate: %2$s</string>
+    <string name="email_subject_purchase_confirmation">Your booking confirmation — %1$s</string>
+    <string name="added_to_favorites_title">Added to Favorites</string>
+    <string name="added_to_favorites_message">%1$s was added to your favorites.</string>
+    <string name="event_reminder_title">Event Tomorrow!</string>
+    <string name="event_reminder_message">Don\'t forget — %1$s is happening tomorrow at %2$s.</string>
+    <string name="event_reminder_3h_title">Event Starting Soon!</string>
+    <string name="event_reminder_3h_message">%1$s starts in 3 hours at %2$s. Get ready!</string>
+
+    <!-- Payment Card Placeholders -->
+    <string name="card_number_placeholder">•••• •••• •••• ••••</string>
+    <string name="card_holder_placeholder">YOUR NAME</string>
+    <string name="card_expiry_placeholder">MM/YY</string>
+
+    <!-- Venue Section Labels -->
+    <string name="standing_label">STANDING</string>
+    <string name="seated_label">SEATED</string>
+
+    <!-- Time-based Greetings -->
+    <string name="good_morning">Good Morning, %1$s</string>
+    <string name="good_afternoon">Good Afternoon, %1$s</string>
+    <string name="good_evening">Good Evening, %1$s</string>
+
+    <!-- Event Availability -->
+    <string name="tickets_left_pct">%1$d%% Left</string>
+
+    <!-- Toast Messages -->
+    <string name="welcome_login_toast">Welcome to StageMate!</string>
+    <string name="ticket_downloaded_toast">Ticket saved!</string>
+
+    <!-- QR Validation -->
+    <string name="invalid_qr_data">Invalid ticket QR code</string>
+
+    <!-- Accessibility -->
+    <string name="event_poster">Event poster</string>
+    <string name="favorite">Favorite</string>    <string name="cd_close_button">Close</string>
+    <string name="cd_edit_profile">Edit profile</string>
+    <string name="cd_calendar_icon">Date</string>
+    <string name="cd_time_icon">Time</string>
+    <string name="cd_location_icon">Location</string>
+    <string name="cd_notifications_icon">Notifications</string>
+    <string name="cd_ticket_icon">Tickets</string>
+    <string name="cd_person_icon">Account</string>
+    <string name="cd_info_icon">Information</string>
+    <string name="cd_faq_icon">Help and FAQ</string>
+    <string name="cd_success_icon">Success</string>
+    <string name="cd_event_image">Event image</string>
+    <string name="cd_onboarding_illustration">Onboarding illustration</string>
+    <string name="cd_app_logo">StageMate logo</string>
+
+    <!-- Payment Details -->
+    <string name="credit_card">Credit Card</string>
+    <string name="card_holder_label">CARD HOLDER</string>
+    <string name="expires_label">EXPIRES</string>
+    <string name="expiry_placeholder">MM/YY</string>
+
+    <!-- RATING -->
+    <string name="rate_event">Rate Event</string>
+    <string name="rate_this_event">How was the event?</string>
+    <string name="submit_rating">Submit</string>
+    <string name="submitting">Submitting…</string>    <string name="rating_error">Failed to submit rating</string>
+    <string name="thank_you_for_rating">Thank you for rating! 🎉</string>
+    <string name="please_select_rating">Please select a rating</string>
+    <string name="rating_failed">Failed to submit rating, please try again</string>
+
+    <!-- Venue Map -->
+    <string name="seat_selection_title">Seat Selection</string>
+    <!-- LOCATION FILTER -->
+    <string name="location_filter_title">Location Filter</string>
+    <string name="location_filter_subtitle">Filter home events by your location</string>
+    <string name="location_nearest_city">Nearest City</string>
+    <string name="location_by_distance">By Distance</string>
+    <string name="location_all_areas">All Areas</string>    <string name="location_permission_denied">Location permission denied. Showing all events.</string>
+    <string name="location_unavailable">Location unavailable. Showing all events.</string>
+
+    <!-- FORGOT PASSWORD -->
+    <string name="forgot_password_dialog_title">Reset Password</string>
+    <string name="forgot_password_dialog_message">Enter your email address and we\'ll send you a reset link.</string>
+    <string name="reset_email_sent">Password reset email sent</string>
+    <string name="reset_email_failed">Failed to send reset email</string>
+
+    <!-- SEARCH HISTORY -->
+    <string name="search_history_title">Recent Searches</string>
+    <string name="clear_history">Clear History</string>
+    <!-- PAYMENT PROGRESS -->
+    <string name="creating_ticket">Creating ticket…</string>
+
+    <!-- SEAT MAP -->
+    <string name="total_seats_format">Total: %d seats</string>
+    <string name="available_seats_format">%d available</string>
+
+    <!-- Past Event -->
+    <string name="event_already_passed">This event has already passed and tickets are no longer available.</string>
+    <string name="event_ended">Event Ended</string>
+
+    <!-- Ticket Detail -->
+    <string name="ticket_details_header">Ticket Details</string>
+    <string name="total_paid">Total Paid</string>
+    <string name="view_event_details">View Event Details</string>
+    <string name="purchased_on">Purchased on %1$s</string>
+    <string name="time_tba">TBA</string>
+    <string name="general_admission">General Admission</string>
+    <string name="seat_entry">Entry</string>
+    <string name="seat_section">Section</string>
+    <string name="seat_row">Row</string>
+    <string name="seat_number">Seat</string>
+    <string name="preferred_categories_title">My Preferred Categories</string>
+    <string name="save_btn">Save</string>
+
+</resources>

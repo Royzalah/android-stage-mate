@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+    Material Design 3 Motion Tokens
+    Based on: https://m3.material.io/styles/motion/easing-and-duration
+    -->
+    
+    <!-- Duration Tokens -->
+    <!-- Short durations (50-200ms) - Simple transitions -->
+    <integer name="motion_duration_short_1">50</integer>
+    <integer name="motion_duration_short_2">100</integer>
+    <integer name="motion_duration_short_3">150</integer>
+    <integer name="motion_duration_short_4">200</integer>
+    
+    <!-- Medium durations (250-400ms) - Standard transitions -->
+    <integer name="motion_duration_medium_1">250</integer>
+    <integer name="motion_duration_medium_2">300</integer>
+    <integer name="motion_duration_medium_3">350</integer>
+    <integer name="motion_duration_medium_4">400</integer>
+    
+    <!-- Long durations (450-700ms) - Complex transitions -->
+    <integer name="motion_duration_long_1">450</integer>
+    <integer name="motion_duration_long_2">500</integer>
+    <integer name="motion_duration_long_3">550</integer>
+    <integer name="motion_duration_long_4">600</integer>
+    
+    <!-- Extra Long (for special cases) -->
+    <integer name="motion_duration_extra_long_1">700</integer>
+    <integer name="motion_duration_extra_long_2">800</integer>
+    <integer name="motion_duration_extra_long_3">900</integer>
+    <integer name="motion_duration_extra_long_4">1000</integer>
+    
+    <!-- Common Use Cases -->
+    <integer name="motion_duration_enter">300</integer>      <!-- Component entering screen -->
+    <integer name="motion_duration_exit">200</integer>       <!-- Component exiting screen -->
+    <integer name="motion_duration_navigation">400</integer> <!-- Screen transitions -->
+    <integer name="motion_duration_fade">150</integer>       <!-- Simple fades -->
+    <integer name="motion_duration_ripple">300</integer>     <!-- Button ripple effect -->
+</resources>

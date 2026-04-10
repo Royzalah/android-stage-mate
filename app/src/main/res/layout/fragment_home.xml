@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/home_SRL_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/home_NSV_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:overScrollMode="always">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ═══ Welcome Header Card ═══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/home_CV_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/background_card"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:strokeColor="@color/stroke_subtle"
+                app:strokeWidth="@dimen/stroke_thin">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_medium">
+
+                    <LinearLayout
+                        android:id="@+id/home_LAYOUT_greeting"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/home_LAYOUT_notification"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/home_LBL_greeting"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/greeting_guest"
+                            android:textColor="@color/text_primary"
+                            android:textAppearance="@style/TextAppearance.StageMate.TitleMedium"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/home_LBL_welcome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_xs"
+                            android:text="@string/welcome_message"
+                            android:textColor="@color/text_secondary"
+                            android:textAppearance="@style/TextAppearance.StageMate.BodySmall"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <!-- Notification Bell with Badge -->
+                    <FrameLayout
+                        android:id="@+id/home_LAYOUT_notification"
+                        android:layout_width="@dimen/icon_large"
+                        android:layout_height="@dimen/icon_large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/home_IMG_notification"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/padding_xs"
+                            android:contentDescription="@string/notifications"
+                            app:srcCompat="@drawable/ic_notifications"
+                            app:tint="@color/text_primary" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/home_LBL_notification_badge"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_gravity="top|end"
+                            android:background="@drawable/bg_notification_badge"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_xs"
+                            android:visibility="gone" />
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ═══ HOT EVENTS — filtered by preferred categories ═══ -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/home_LBL_hot_events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="@string/hot_events_section"
+                android:textAppearance="@style/TextAppearance.StageMate.HeadlineSmall"
+                android:textColor="@color/text_primary" />
+
+            <!-- Skeleton Loader -->
+            <LinearLayout
+                android:id="@+id/home_LAYOUT_skeleton"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/margin_medium"
+                android:paddingEnd="@dimen/margin_medium"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:background="@drawable/skeleton_background" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_small"
+                    android:background="@drawable/skeleton_background" />
+            </LinearLayout>
+
+            <!-- Hot Events — vertical list of event cards -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_RV_events"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:padding="@dimen/margin_small"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_event" />
+
+            <!-- Empty state -->
+            <LinearLayout
+                android:id="@+id/home_LAYOUT_empty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_xxl"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/image_thumbnail"
+                    android:layout_height="@dimen/image_thumbnail"
+                    app:srcCompat="@drawable/ic_ticket"
+                    app:tint="@color/text_hint"
+                    android:alpha="0.6"
+                    android:contentDescription="@null" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/home_LBL_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@string/no_events_available"
+                    android:textColor="@color/text_secondary"
+                    android:textAppearance="@style/TextAppearance.StageMate.BodyLarge"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
