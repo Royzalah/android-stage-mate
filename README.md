@@ -101,7 +101,7 @@ app/src/main/java/com/roei/stagemate/
 ## Usage
 
 1. **Sign up or log in** with email or your Google account
-2. **Choose your preferences** — pick favorite categories and city during onboarding
+2. **Choose your preferences** — pick favorite categories during onboarding
 3. **Discover events** — browse the home screen for hot, recommended, and trending events
 4. **Search & filter** — find events by name, category, city, or date
 5. **Pick your seats** — tap an event, view the venue map, and select your preferred seats
