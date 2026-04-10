@@ -40,7 +40,7 @@ StageMate brings the full event experience to your pocket. Discover events happe
 - **Favorites & History** — Save events and revisit recently viewed ones
 - **Push Notifications** — Trending event alerts and reminders via Firebase Cloud Messaging
 - **Calendar Sync** — Add events directly to your Google Calendar
-- **Multi-Language** — Full English and Hebrew support
+- **Wide Event Variety** — Concerts, stand-up comedy, theater, kids shows, sports, festivals, and more
 - **Email Receipts** — Receive a purchase receipt directly to your email after buying tickets
 - **Deep Linking** — Share and open events via `stagemate://` links
 
