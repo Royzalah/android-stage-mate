@@ -103,7 +103,7 @@ app/src/main/java/com/roei/stagemate/
 1. **Sign up or log in** with email or your Google account
 2. **Choose your preferences** — pick favorite categories during onboarding
 3. **Discover events** — browse the home screen for hot, recommended, and trending events
-4. **Search & filter** — find events by name, category, city, or date
+4. **Search & filter** — find events by name, category, or city
 5. **Pick your seats** — tap an event, view the venue map, and select your preferred seats
 6. **Purchase tickets** — complete the checkout flow with order summary and payment
 7. **Manage your tickets** — view all tickets with QR codes in the Tickets tab
