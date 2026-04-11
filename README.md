@@ -2,11 +2,12 @@
 <a id="readme-top"></a>
 
 <h1 align="center">
-  <a href="https://github.com/Royzalah/android-stage-mate"><img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Logo" width="200"></a>
+  <a href="https://github.com/Royzalah/android-stage-mate"><img src="https://github.com/user-attachments/assets/22b24069-e2d2-40b4-9501-ad5602386358" alt="StageMate Logo" width="200"></a>
   <br>
   StageMate
   <br>
 </h1>
+
 
 <p align="center">
 	<b>Discover live events, pick your seats, and buy tickets — all in one Android app built for the Israeli market.</b>
