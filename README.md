@@ -1,114 +1,164 @@
-<div align="center">
 
-<img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="StageMate Logo" width="120"/>
+<a id="readme-top"></a>
 
-# StageMate
+<h1 align="center">
+  <a href="https://github.com/Royzalah/android-stage-mate"><img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="Logo" width="200"></a>
+  <br>
+  StageMate
+  <br>
+</h1>
 
-**A comprehensive event ticketing and discovery platform for Android, built for the Israeli market.**
-
-Discover live events · Pick your perfect seats · Purchase tickets — all in one app.
-
-[![Android](https://img.shields.io/badge/Android-8.0%2B-brightgreen?logo=android&logoColor=white)](https://developer.android.com)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.9-blue?logo=kotlin&logoColor=white)](https://kotlinlang.org)
-[![Firebase](https://img.shields.io/badge/Firebase-Backend-orange?logo=firebase&logoColor=white)](https://firebase.google.com)
-[![Material 3](https://img.shields.io/badge/Material%20Design-3-purple?logo=material-design&logoColor=white)](https://m3.material.io)
-
-</div>
+<p align="center">
+	<b>Discover live events, pick your seats, and buy tickets — all in one Android app built for the Israeli market.</b>
+</p>
+<p align="center">
+	<a href="https://github.com/Royzalah/android-stage-mate/issues">Report Bug</a>
+	•
+	<a href="https://github.com/Royzalah/android-stage-mate/issues">Request Feature</a>
+	•
+	<a href="#5-demonstration">View Demo</a>
+</p>
 
 ---
 
-## About The Project
+<p align="center">
+    <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white" alt="Kotlin" />
+    <img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=android&logoColor=white" alt="Android" />
+    <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black" alt="Firebase" />
+    <img src="https://img.shields.io/badge/Material%203-757575?style=flat&logo=materialdesign&logoColor=white" alt="Material 3" />
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" />
+</p>
 
-Developed as a final project for the **"User Interface Development"** course, as part of a Computer Science BSc.
+## 1 About The Project
+StageMate is a comprehensive event ticketing and discovery platform for Android. It brings the full event experience to your pocket — discover events around you, pick seats on an interactive venue map, purchase tickets via a multi-step checkout, and manage everything from trending concerts to QR-coded tickets in one place.
 
-StageMate brings the full event experience to your pocket. Discover events happening around you, pick your perfect seats on an interactive venue map, purchase tickets, and manage everything in one place. From finding a trending concert to getting a QR-coded ticket — StageMate handles it all.
+The project was developed as part of the 'User Interface Development' course in my Computer Science BSc at Afeka College of Engineering.
 
-## Demo
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- Add a demo video or GIF here -->
-<!-- Example: -->
-<!-- https://github.com/user-attachments/assets/your-video-id -->
+## 2 Key Features
+- **Event Discovery**: Hot, recommended, and trending events with GPS-aware "Near Me" filtering (Haversine, 30km radius).
+- **Smart Search & Filtering**: Filter by category, city, or free text with adaptive debouncing.
+- **Interactive Seat Selection**: Venue-specific maps for Bloomfield Stadium, Menora Arena, and theaters with real-time availability.
+- **End-to-End Ticketing**: Multi-step payment wizard, QR-coded tickets, and booking references.
+- **Favorites & History**: Save events and revisit recently viewed ones.
+- **Push Notifications**: Trending alerts and event reminders via Firebase Cloud Messaging.
+- **Calendar Sync**: Add purchased events directly to Google Calendar.
+- **Deep Linking**: Share events via `stagemate://` links.
 
-> Demo video coming soon.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Key Features
-
-- **Event Discovery** — Browse hot, recommended, and trending events with location-aware filtering
-- **Smart Search** — Filter by category, city, date, and free text
-- **Interactive Seat Selection** — Choose seats on venue-specific maps (Stadium, Theater, Arena) with real-time availability
-- **Ticket Management** — View tickets with QR codes, booking references, and status tracking
-- **Favorites & History** — Save events and revisit recently viewed ones
-- **Push Notifications** — Trending event alerts and reminders via Firebase Cloud Messaging
-- **Calendar Sync** — Add events directly to your Google Calendar
-- **Wide Event Variety** — Concerts, stand-up comedy, theater, kids shows, sports, festivals, and more
-- **Email Receipts** — Receive a purchase receipt directly to your email after buying tickets
-- **Deep Linking** — Share and open events via `stagemate://` links
-
-## Architecture
+## 3 Architecture
+Callback-based layered architecture (no ViewModel/LiveData) following course requirements. Fragments route through `DataRepository`, never calling `FirebaseManager` directly. Fragment-to-Activity communication is via Interface Callbacks.
 
 ```
 app/src/main/java/com/roei/stagemate/
 ├── data/
-│   ├── models/          # Event, User, Ticket, Seat, Venue, Category...
-│   ├── interfaces/      # Callback interfaces for adapters
-│   └── repository/      # DataRepository (Firebase wrapper with local fallback)
+│   ├── models/            # Event, User, Ticket, Seat, Venue, Category, PricingTier
+│   ├── interfaces/        # Callback interfaces (Event, Ticket, Category, Notification)
+│   └── repository/        # DataRepository — single source of truth
 ├── ui/
-│   ├── activities/      # 16 screens (Login, Payment, Seat Selection...)
-│   ├── fragments/       # 7 main fragments (Home, Search, Tickets, Profile...)
-│   ├── adapters/        # 10 RecyclerView adapters
-│   ├── dialogs/         # Rating, Trending Event, QR Code dialogs
-│   └── views/           # Custom venue map views (Stadium, Theater, Arena)
-├── services/            # FCM messaging, event reminder receiver
-├── utilities/           # Firebase, Location, QR, image loading, formatting
-└── MyApp.kt             # Application entry point
+│   ├── activities/        # Splash, Login, SignUp, Main, EventDetail, SeatSelection, Payment, Receipt
+│   ├── fragments/         # Home, Search, Tickets, Profile, Notifications, Payment wizard
+│   ├── adapters/          # RecyclerView adapters
+│   ├── dialogs/           # Rating, Trending Event, QR Code
+│   └── views/             # BaseVenueMapView, StadiumMapView, TheaterMapView, ArenaMapView
+├── services/              # FCM messaging, event reminder receiver
+├── utilities/             # FirebaseManager, LocationManager, ImageLoader, QRCodeManager
+└── MyApp.kt
 ```
 
-## Tech Stack
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-| Layer | Technology |
-|-------|-----------|
-| Language | Kotlin |
-| UI | Material Design 3, ConstraintLayout, Lottie Animations |
-| Navigation | Jetpack Navigation Component |
-| Backend | Firebase (Firestore, Realtime DB, Storage, FCM, Analytics, Crashlytics) |
-| Auth | Firebase Auth (Email + Google SSO via FirebaseUI) |
-| Maps | Google Maps SDK |
-| Images | Glide |
-| QR Codes | ZXing |
-| Serialization | Gson |
+## 4 Classes Overview
 
-## Getting Started
+| Class Name          | Layer/Type      | Description                                                               |
+| :------------------ | :-------------- | :------------------------------------------------------------------------ |
+| `DataRepository`    | **Repository**  | Single entry point for data ops; fragments never call Firebase directly.  |
+| `FirebaseManager`   | **Manager**     | Wraps Firestore/Auth; UUIDs generated locally before `.document().set()`. |
+| `MainActivity`      | **Activity**    | Hosts the 4 bottom-nav tabs (Home, Search, Tickets, Profile).             |
+| `BaseVenueMapView`  | **Custom View** | Base for interactive venue maps; subclassed per venue type.               |
+| `PaymentActivity`   | **Activity**    | Multi-step checkout via Navigation Component internal to the activity.    |
+| `LocationManager`   | **Manager**     | `FusedLocationProviderClient` wrapper for Near Me filtering.              |
+| `ImageLoader`       | **Wrapper**     | Glide singleton wrapper for consistent image loading across the app.      |
+| `QRCodeManager`     | **Manager**     | ZXing wrapper generating QR codes for ticket validation.                  |
 
-### Prerequisites
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Android Studio Hedgehog or newer
-- Android 8.0+ (API 26)
-- Google Play Services
+## 5 Demonstration
+> Screenshots and demo video coming soon.
 
-### Installation
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 6 Tech Stack
+
+| Layer         | Technology                                                              |
+| :------------ | :---------------------------------------------------------------------- |
+| Language      | Kotlin                                                                  |
+| UI            | Material Design 3, ConstraintLayout, ViewBinding, Lottie                |
+| Navigation    | Jetpack Navigation Component                                            |
+| Backend       | Firebase (Firestore, Storage, FCM, Analytics, Crashlytics)              |
+| Auth          | Firebase Auth (Email + Google SSO via FirebaseUI)                       |
+| Location      | Google Play Services — FusedLocationProviderClient                      |
+| Images        | Glide (via `ImageLoader` wrapper)                                       |
+| QR Codes      | ZXing                                                                   |
+| Serialization | Gson                                                                    |
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 7 Getting Started
+
+### 7.1 Prerequisites
+*   **Android Studio**: Hedgehog or newer (https://developer.android.com/studio)
+*   **Kotlin**: Version 1.9+
+*   **Min SDK**: 26 (Android 8.0)
+*   **Firebase project** with Auth, Firestore, Storage, FCM, Analytics, and Crashlytics enabled
+
+### 7.2 Installation
 1. Clone the repo
-   ```bash
-   git clone https://github.com/Royzalah/android-stage-mate.git
-   ```
-2. Set up Firebase
-   - Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-   - Enable Authentication (Email and Google sign-in) and Firestore
-   - Download `google-services.json` and place it in the `app/` folder
-3. Open the project in Android Studio
-4. Run on an emulator or physical device (API 26+)
+```
+git clone https://github.com/Royzalah/android-stage-mate.git
+```
+2. Set up Firebase — create a project, enable Auth (Email + Google) and Firestore, then drop `google-services.json` into `app/`.
+3. Open the project in Android Studio, sync Gradle, and run on a physical device or emulator (API 26+).
 
-## Usage
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-1. **Sign up or log in** with email or your Google account
-2. **Choose your preferences** — pick favorite categories during onboarding
-3. **Discover events** — browse the home screen for hot, recommended, and trending events
-4. **Search & filter** — find events by name, category, or city
-5. **Pick your seats** — tap an event, view the venue map, and select your preferred seats
-6. **Purchase tickets** — complete the checkout flow with order summary and payment
-7. **Manage your tickets** — view all tickets with QR codes in the Tickets tab
-8. **Stay updated** — receive push notifications about trending events and reminders
+## 8 Usage
 
-## License
+*   **Sign up or log in** with email or Google SSO.
+*   **Choose preferred categories** during onboarding.
+*   **Discover events** — browse hot, recommended, and trending sections.
+*   **Search & filter** by name, category, or city.
+*   **Pick seats** on the interactive venue map (or General Admission for festivals).
+*   **Purchase** through the multi-step checkout wizard.
+*   **Manage tickets** with QR codes in the Tickets tab.
 
-This project was built as a final project for the **User Interface Development** course.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 9 Roadmap
+
+- [ ] Real-time Firestore snapshot listeners for live seat availability
+- [ ] In-app event reviews and ratings
+- [ ] Dark theme polish pass
+- [ ] Google Wallet pass export
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 10 Contributors
+
+<div align="center">
+ <a href="https://github.com/Royzalah/android-stage-mate/graphs/contributors">
+ <img src="https://contrib.rocks/image?repo=Royzalah/android-stage-mate" alt="contrib.rocks image" />
+ </a>
+ </br>
+ Roei Zalah
+</div>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 11 License
+
+Built as a final project for the **User Interface Development** course at Afeka College of Engineering. Distributed under the MIT License.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
