@@ -13,11 +13,5 @@ class PrivacyPolicyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPrivacyPolicyBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        initViews()
-    }
-
-    private fun initViews() {
-        binding.privacyIMGBack.setOnClickListener { finish() }
     }
 }

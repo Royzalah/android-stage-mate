@@ -6,18 +6,6 @@
     android:background="@drawable/gradient_background"
     android:padding="@dimen/padding_medium">
 
-    <!-- Back Button -->
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/privacy_IMG_back"
-        android:layout_width="@dimen/icon_large"
-        android:layout_height="@dimen/icon_large"
-        android:padding="@dimen/padding_xs"
-        android:contentDescription="@string/cd_close_button"
-        app:srcCompat="@drawable/ic_close"
-        app:tint="@color/text_primary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Title -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/privacy_LBL_title"
@@ -27,9 +15,8 @@
         android:textColor="@color/text_primary"
         style="@style/TextAppearance.StageMate.DisplaySmall"        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/privacy_IMG_back"
-        app:layout_constraintTop_toTopOf="@id/privacy_IMG_back"
-        app:layout_constraintBottom_toBottomOf="@id/privacy_IMG_back" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- ScrollView for Content -->
     <ScrollView

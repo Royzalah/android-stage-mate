@@ -187,8 +187,6 @@ class TicketDetailActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        binding.ticketDetailBTNBack.setOnClickListener { finish() }
-
         binding.ticketDetailBTNDownload.setOnClickListener { downloadTicket() }
 
         binding.ticketDetailBTNViewEvent.setOnClickListener {

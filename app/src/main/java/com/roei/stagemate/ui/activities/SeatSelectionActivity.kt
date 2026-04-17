@@ -159,7 +159,6 @@ class SeatSelectionActivity : AppCompatActivity() {
 
         binding.seatBTNContinue.isEnabled = false
         binding.seatBTNContinue.setOnClickListener { proceedToPayment() }
-        binding.seatDetailBTNBack.setOnClickListener { showSectionMap() }
 
         ticketType = TicketType.REGULAR
         updateSelectedSeatsLabel()

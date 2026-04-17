@@ -12,31 +12,17 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium">
 
-        <!-- Back Button -->
-        <ImageButton
-            android:id="@+id/ticketDetail_BTN_back"
-            android:layout_width="@dimen/button_height_small"
-            android:layout_height="@dimen/button_height_small"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/back"
-            app:srcCompat="@drawable/ic_arrow_left"
-            app:tint="@color/text_primary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/ticketDetail_LBL_header"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
             android:text="@string/ticket_details_header"
             android:textColor="@color/text_primary"
             android:textSize="@dimen/text_size_xl"
             android:fontFamily="@font/outfit_semibold"
-            app:layout_constraintStart_toEndOf="@id/ticketDetail_BTN_back"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ticketDetail_BTN_back"
-            app:layout_constraintBottom_toBottomOf="@id/ticketDetail_BTN_back" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Event Image -->
         <com.google.android.material.imageview.ShapeableImageView
@@ -47,7 +33,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/img_placeholder"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Rounded16"
-            app:layout_constraintTop_toBottomOf="@id/ticketDetail_BTN_back" />
+            app:layout_constraintTop_toBottomOf="@id/ticketDetail_LBL_header" />
 
         <!-- Status Badge -->
         <com.google.android.material.textview.MaterialTextView
