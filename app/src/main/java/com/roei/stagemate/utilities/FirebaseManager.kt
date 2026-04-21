@@ -1,7 +1,5 @@
 package com.roei.stagemate.utilities
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
@@ -40,7 +38,7 @@ object FirebaseManager {
     private var cachedFavoriteIds: Set<String> = emptySet()
     private var favoritesCacheListener: ListenerRegistration? = null
 
-    // Starts a listener on the user doc to keep cachedFavoriteIds in sync.
+    // Starts a listener on the favorites subcollection to keep cachedFavoriteIds in sync.
     // Call once after sign-in and again on user change. Safe to call multiple times.
     fun startFavoritesCacheListener() {
         favoritesCacheListener?.remove()
@@ -48,14 +46,10 @@ object FirebaseManager {
         cachedFavoriteIds = emptySet()
         val userId = getCurrentUser()?.uid ?: return
         favoritesCacheListener = db.collection("users").document(userId)
+            .collection("favorites")
             .addSnapshotListener { snapshot, error ->
                 if (error != null || snapshot == null) return@addSnapshotListener
-                @Suppress("UNCHECKED_CAST")
-                val ids = (snapshot.get("favoriteEvents") as? List<String>)
-                    ?.filter { it.isNotBlank() }
-                    ?.toHashSet()
-                    ?: hashSetOf()
-                cachedFavoriteIds = ids
+                cachedFavoriteIds = snapshot.documents.map { it.id }.toHashSet()
             }
     }
 
@@ -336,14 +330,13 @@ object FirebaseManager {
     fun toggleFavorite(eventId: String, isFavorite: Boolean, callback: (Boolean) -> Unit) {
         val userId = getCurrentUser()?.uid ?: run { callback(false); return }
         val eventRef = db.collection("events").document(eventId)
-        val userRef = db.collection("users").document(userId)
+        val favoriteRef = db.collection("users").document(userId).collection("favorites").document(eventId)
 
         db.runTransaction { transaction ->
             val increment = if (isFavorite) 1 else -1
             transaction.set(eventRef, mapOf("favoriteCount" to FieldValue.increment(increment.toLong())), SetOptions.merge())
-            val favUpdate = if (isFavorite) mapOf("favoriteEvents" to FieldValue.arrayUnion(eventId))
-                else mapOf("favoriteEvents" to FieldValue.arrayRemove(eventId))
-            transaction.set(userRef, favUpdate, SetOptions.merge())
+            if (isFavorite) transaction.set(favoriteRef, mapOf("eventId" to eventId))
+            else transaction.delete(favoriteRef)
         }.addOnSuccessListener {
             val rtdbFavRef = rtdb.child("users").child(userId).child("favoriteEvents").child(eventId)
             if (isFavorite) rtdbFavRef.setValue(true) else rtdbFavRef.removeValue()
@@ -353,11 +346,10 @@ object FirebaseManager {
 
     fun listenToFavoriteEvents(callback: (List<Event>) -> Unit): ListenerRegistration? {
         val userId = getCurrentUser()?.uid ?: return null
-        return db.collection("users").document(userId)
+        return db.collection("users").document(userId).collection("favorites")
             .addSnapshotListener { snapshot, error ->
                 if (error != null || snapshot == null) { callback(emptyList()); return@addSnapshotListener }
-                @Suppress("UNCHECKED_CAST")
-                val favoriteIds = (snapshot.get("favoriteEvents") as? List<String>)?.filter { it.isNotBlank() } ?: emptyList()
+                val favoriteIds = snapshot.documents.map { it.id }.filter { it.isNotBlank() }
                 if (favoriteIds.isEmpty()) { callback(emptyList()); return@addSnapshotListener }
                 db.collection(COLLECTION_EVENTS).whereIn(FieldPath.documentId(), favoriteIds.take(10)).get()
                     .addOnSuccessListener { docs ->
@@ -610,42 +602,27 @@ object FirebaseManager {
         db.collection("config").document("seed_info").get()
             .addOnSuccessListener { configDoc ->
                 val currentVersion = configDoc.getLong("version")?.toInt() ?: 0
-                Log.d(TAG, "Seed check: Firestore version=$currentVersion, required=$SEED_VERSION")
                 if (currentVersion < SEED_VERSION) {
-                    Log.d(TAG, "Seed: version outdated, reseeding...")
                     clearAndReseed(onComplete)
                 } else {
                     db.collection(COLLECTION_EVENTS).limit(1).get()
                         .addOnSuccessListener { snapshot ->
-                            if (snapshot.isEmpty) {
-                                Log.d(TAG, "Seed: no events found, reseeding...")
-                                clearAndReseed(onComplete)
-                            } else {
-                                Log.d(TAG, "Seed: events exist and version is current")
-                                onComplete()
-                            }
+                            if (snapshot.isEmpty) clearAndReseed(onComplete)
+                            else onComplete()
                         }
-                        .addOnFailureListener { e ->
-                            Log.e(TAG, "Seed: failed to check events", e)
-                            onComplete()
-                        }
+                        .addOnFailureListener { onComplete() }
                 }
             }
-            .addOnFailureListener { e ->
-                Log.e(TAG, "Seed: failed to read config", e)
-                clearAndReseed(onComplete)
-            }
+            .addOnFailureListener { clearAndReseed(onComplete) }
     }
 
     private fun clearAndReseed(onComplete: () -> Unit) {
         db.collection(COLLECTION_EVENTS).get()
             .addOnSuccessListener { snapshot ->
-                Log.d(TAG, "Seed: deleting ${snapshot.size()} old events...")
                 val deleteBatch = db.batch()
                 snapshot.documents.forEach { deleteBatch.delete(it.reference) }
                 deleteBatch.commit().addOnCompleteListener {
                     val events = IsraeliEventsGenerator.generateRealisticIsraeliEvents()
-                    Log.d(TAG, "Seed: writing ${events.size} new events...")
                     val seedBatch = db.batch()
                     events.forEach { event ->
                         val docRef = db.collection(COLLECTION_EVENTS).document(event.id)
@@ -656,20 +633,11 @@ object FirebaseManager {
                         mapOf("version" to SEED_VERSION)
                     )
                     seedBatch.commit()
-                        .addOnSuccessListener {
-                            Log.d(TAG, "Seed: SUCCESS — ${events.size} events written, version=$SEED_VERSION")
-                            onComplete()
-                        }
-                        .addOnFailureListener { e ->
-                            Log.e(TAG, "Seed: FAILED to write events", e)
-                            onComplete()
-                        }
+                        .addOnSuccessListener { onComplete() }
+                        .addOnFailureListener { onComplete() }
                 }
             }
-            .addOnFailureListener { e ->
-                Log.e(TAG, "Seed: FAILED to read existing events", e)
-                onComplete()
-            }
+            .addOnFailureListener { onComplete() }
     }
 
     /**

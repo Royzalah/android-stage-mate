@@ -163,3 +163,5 @@ key.properties
 # Local configuration
 local.properties
 
+# Added by code-review-graph
+.code-review-graph/

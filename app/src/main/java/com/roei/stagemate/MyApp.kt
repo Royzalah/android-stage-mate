@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.FirebaseAppCheck
-import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.database.FirebaseDatabase
 import com.bumptech.glide.Glide
@@ -40,11 +39,7 @@ class MyApp : Application() {
         FirebaseApp.initializeApp(this)
 
         val appCheck = FirebaseAppCheck.getInstance()
-        if (BuildConfig.DEBUG) {
-            appCheck.installAppCheckProviderFactory(DebugAppCheckProviderFactory.getInstance())
-        } else {
-            appCheck.installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance())
-        }
+        appCheck.installAppCheckProviderFactory(PlayIntegrityAppCheckProviderFactory.getInstance())
 
         try {
             val rtdbUrl = "https://stagemate-89f9c-default-rtdb.europe-west1.firebasedatabase.app"
@@ -74,5 +69,4 @@ class MyApp : Application() {
             LocaleListCompat.create(Locale.ENGLISH)
         )
     }
-
 }

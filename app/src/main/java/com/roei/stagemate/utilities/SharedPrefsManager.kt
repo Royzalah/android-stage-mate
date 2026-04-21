@@ -144,13 +144,17 @@ class SharedPrefsManager(context: Context) {
     }
 
     fun saveSearchHistory(history: List<String>) {
-        sharedPreferences.edit()
-            .putStringSet(KEY_SEARCH_HISTORY, history.toSet())
-            .apply()
+        val json = Gson().toJson(history)
+        sharedPreferences.edit().putString(KEY_SEARCH_HISTORY, json).apply()
     }
 
     fun getSearchHistory(): List<String> {
-        return sharedPreferences.getStringSet(KEY_SEARCH_HISTORY, emptySet())?.toList() ?: emptyList()
+        val json = sharedPreferences.getString(KEY_SEARCH_HISTORY, null) ?: return emptyList()
+        return try {
+            Gson().fromJson(json, Array<String>::class.java).toList()
+        } catch (e: Exception) {
+            emptyList()
+        }
     }
 
     fun clearSearchHistory() {
